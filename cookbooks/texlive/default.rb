@@ -24,17 +24,27 @@ execute "rm -Rf #{source}" do
     only_if "[[ -d #{source} ]]"
 end
 
-def tlmgr()
-    tmp = "find . -iname tlmgr | grep bin | xargs"
-    case node[:platform]
-    when "darwin"
-        tmp = "#{tmp} -J"
-    when "linux"
-        tmp = "#{tmp} -I"
-    end
-    "#{tmp}@ @"
+tlmgr_path = "find #{install_dir} -iname tlmgr | grep bin | xargs"
+case node[:platform]
+when "darwin"
+    tlmgr_path = "#{tlmgr_path} -J"
+else
+    tlmgr_path = "#{tlmgr_path} -I"
 end
+tlmgr_path = "#{tlmgr_path}@ @"
 
-execute "#{tlmgr()} update --self --all"
-execute "#{tlmgr()} paper a4"
-execute "#{tlmgr()} install collection-japanese cjk latexmk biber graphcx"
+execute "#{tlmgr_path} update --self --all"
+execute "#{tlmgr_path} paper a4" do
+    not_if "#{tlmgr_path} paper | grep a4"
+end
+[
+    "collection-langjapanese",
+    "cjk",
+    "latexmk",
+    "biber",
+    "graphics",
+].each { |package|
+    execute "#{tlmgr_path} install #{package}" do
+        not_if "#{tlmgr_path} list --only-installed | grep -q #{package}"
+    end
+}
