@@ -1,0 +1,15 @@
+import platform
+from pathlib import Path
+
+new_path = [
+    "~/.local/bin",
+    "~/.cargo/bin",
+]
+if platform.sysmte() == "Darwin":
+    new_path += [
+        Path($(brew --prefx | tr -d '\n')) / "bin",
+        Path($(brew --prefx | tr -d '\n')) / "sbin",
+    ]
+$PATH = new_path + $PATH
+
+$XONSH_COLOR_STYLE = "native"
