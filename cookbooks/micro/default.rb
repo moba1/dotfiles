@@ -2,10 +2,12 @@ case node[:platform]
 when "darwin"
     package "micro"
 else
-    directory File.expand_path("~/.local/bin") do
-        not_if "[[ -e ~/.local/bin ]]"
+    binary_dir = "~/.local/bin"
+    directory File.expand_path(binary_dir) do
+        not_if "[[ -e #{binary_dir} ]]"
     end
-    execute "curl https://getmic.ro | bash && mv micro #{File.expand_path('~/.local/bin')}" do
-        not_if "[[ -e ~/.local/bin/micro ]]"
+    repository = "https://getmic.ro"
+    execute "curl #{repository} | bash && mv micro #{binary_dir}" do
+        not_if "[[ -e #{binary_dir} ]]"
     end
 end

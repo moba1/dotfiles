@@ -1,5 +1,8 @@
-execute "mkdir -p #{File.expand_path('~/.homebrew')} && curl -L https://github.com/Homebrew/homebrew/tarball/master | tar xz --strip 1 -C #{File.expand_path('~/.homebrew')}" do
-    not_if "[[ -e #{File.expand_path('~/.homebrew/bin/brew')} ]]"
+homebrew_prefix = "~/.homebrew"
+repository = "https://github.com/Homebrew/homebrew/tarball/master"
+
+execute "mkdir -p #{homebrew_prefix} && curl -L #{repository} | tar xz --strip 1 -C #{homebrew_prefix}" do
+    not_if "[[ -e #{homebrew_prefix}/bin/brew ]]"
 end
 
-execute "brew update"
+execute "#{homebrew_prefix}/bin/brew update"
