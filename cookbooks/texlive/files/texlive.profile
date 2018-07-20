@@ -1,18 +1,18 @@
-# texlive.profile written on Fri Jul 20 13:55:59 2018 UTC
+# texlive.profile written on Fri Jul 20 16:50:34 2018 UTC
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
-selected_scheme scheme-small
-TEXDIR /Users/moba/.tex/2018
+selected_scheme scheme-basic
+TEXDIR /Users/mob_a/.tex
 TEXMFCONFIG ~/Library/texlive/2018/texmf-config
 TEXMFHOME ~/Library/texmf
-TEXMFLOCAL /Users/moba/.tex/texmf-local
-TEXMFSYSCONFIG /Users/moba/.tex/2018/texmf-config
-TEXMFSYSVAR /Users/moba/.tex/2018/texmf-var
+TEXMFLOCAL /Users/mob_a/.tex/texmf-local
+TEXMFSYSCONFIG /Users/mob_a/.tex/texmf-config
+TEXMFSYSVAR /Users/mob_a/.tex/texmf-var
 TEXMFVAR ~/Library/texlive/2018/texmf-var
 binary_x86_64-darwin 1
 instopt_adjustpath 0
 instopt_adjustrepo 1
-instopt_letter 0
+instopt_letter 1
 instopt_portable 0
 instopt_write18_restricted 1
 tlpdbopt_autobackup 1
