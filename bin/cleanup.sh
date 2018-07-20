@@ -1,10 +1,6 @@
 #!/bin/sh
 
-rm -Rf ~/.homebrew ~/.cargo/bin
+rm -Rf ~/.homebrew ~/.cargo/bin ~/.tex
 
-if [ -e /etc/skel/bash_profile ]
-then
-    cp /etc/skel/bash_profile ~/.bash_profile
-else
-    rm ~/.bash_profile
-fi
+[ -e ~/.bash_profile ] && rm ~/.bash_profile
+[ -e /etc/skel/bash_profile ] && cp /etc/skel/bash_profile ~/.bash_profile
