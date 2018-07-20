@@ -2,7 +2,6 @@ import platform
 from pathlib import Path
 
 new_path = [
-    "~/.tex",
     "~/.local/bin",
     "~/.cargo/bin",
 ]
@@ -11,6 +10,7 @@ if platform.system() == "Darwin":
     new_path += [
         Path(brew_prefix) / "bin",
         Path(brew_prefix) / "sbin",
+        Path("~/.tex") / "bin" / "x86_64-darwin",
     ]
 $PATH = new_path + $PATH
 
