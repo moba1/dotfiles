@@ -1,15 +1,27 @@
-directory File.expand_path("~/.tex") do
-    not_if "[[ -d ~/.tex ]]"
+install_dir = "~/.tex"
+
+directory File.expand_path(install_dir) do
+    not_if "[[ -d #{install_dir} ]]"
 end
 
-execute "curl -L http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz | tar zxvf - -C /tmp" do
-    only_if "[[ -z \"$(ls -A ~/.tex)\" ]]"
+source = "/tmp/install-tl-*"
+execute "rm -Rf #{source}" do
+    only_if "[[ -d #{source} ]]"
 end
-execute "cd install-tl-unix; env TEXLIVE_INSTALL_PREFIX=~/.tex /tmp/install-tl-*/install-tl -repository http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/ -q -profile #{File.expand_path("~/.setup/cookbooks/texlive/files/texlive.profile")}" do
-    only_if "[[ -z \"$(ls -A ~/.tex)\" ]]"
+
+mirror = "http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz"
+execute "curl -L #{mirror} | tar zxvf - -C /tmp" do
+    only_if "[[ -z \"$(ls -A #{install_dir})\" ]]"
 end
-execute "rm -Rf /tmp/install-tl-*" do
-    only_if "[[ -d /tmp/install-tl* ]]"
+
+profile = File.expand_path("~/.setup/cookbooks/texlive/files/texlive.profile")
+repository = "http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/"
+execute "cd #{source}; #{source}/install-tl -repository #{repository} -q -profile #{profile}" do
+    only_if "[[ -z \"$(ls -A #{install_dir})\" ]]"
+end
+
+execute "rm -Rf #{source}" do
+    only_if "[[ -d #{source} ]]"
 end
 
 def tlmgr()
@@ -26,12 +38,3 @@ end
 execute "#{tlmgr()} update --self --all"
 execute "#{tlmgr()} paper a4"
 execute "#{tlmgr()} install collection-japanese cjk latexmk biber graphcx"
-
-# case node[:platform]
-# when "Darwin"
-    #execute "find . -iname tlmgr | grep bin | xargs -J@ @ update --self --all"
-    #execute "find . -iname tlgmr | grep bin | xargs -J@ @ paper a4"
-# when "Linux"
-    #execute "find . -iname tlmgr | grep bin | xargs -I@ @ update --self --all"
-    #execute "find . -iname tlmgr | grep bin | xargs -I@ @ update --self --all"
-# end
