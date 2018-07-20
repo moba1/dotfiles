@@ -5,10 +5,11 @@ new_path = [
     "~/.local/bin",
     "~/.cargo/bin",
 ]
-if platform.sysmte() == "Darwin":
+if platform.system() == "Darwin":
+    brew_prefix = "~/.homebrew"
     new_path += [
-        Path($(brew --prefx | tr -d '\n')) / "bin",
-        Path($(brew --prefx | tr -d '\n')) / "sbin",
+        Path(brew_prefix) / "bin",
+        Path(brew_prefix) / "sbin",
     ]
 $PATH = new_path + $PATH
 
