@@ -2,6 +2,7 @@ import platform
 from pathlib import Path
 
 new_path = [
+    "~/.tex",
     "~/.local/bin",
     "~/.cargo/bin",
 ]
