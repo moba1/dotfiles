@@ -33,7 +33,9 @@ else
 end
 tlmgr_path = "#{tlmgr_path}@ @"
 
-execute "#{tlmgr_path} update --self --all"
+execute "#{tlmgr_path} update --self --all" do
+    not_if "#{tlmgr_path} update --self --all --dry-run | grep \"no changes will be made\""
+end
 execute "#{tlmgr_path} paper a4" do
     not_if "#{tlmgr_path} paper | grep a4"
 end
