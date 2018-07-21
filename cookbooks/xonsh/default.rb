@@ -1,7 +1,7 @@
 package "xonsh"
 
 link File.expand_path("~/.xonshrc") do
-    to File.expand_path("~/.setup/cookbooks/xonsh/files/.xonshrc")
+    to File.expand_path(File.dirname(__FILE__) + "/files/.xonshrc")
     force true
 end
 
