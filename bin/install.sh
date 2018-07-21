@@ -20,7 +20,7 @@ case "$(uname)" in
     "Darwin")
         ./mitamae local roles/darwin.rb
         ;;
-    "linux")
+    "Linux")
         sudo ./mitamae local roles/"$(get_linux_dist)".rb
         ;;
 esac
