@@ -5,12 +5,13 @@ new_path = [
     "~/.local/bin",
     "~/.cargo/bin",
 ]
+tex_path = Path("~/.tex/2018/bin")
 if platform.system() == "Darwin":
     brew_prefix = "~/.homebrew"
     new_path += [
         Path(brew_prefix) / "bin",
         Path(brew_prefix) / "sbin",
-        Path("~/.tex") / "bin" / "x86_64-darwin",
+        tex_path / "x86_64-darwin",
     ]
 $PATH = new_path + $PATH
 
