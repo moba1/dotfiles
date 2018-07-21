@@ -9,7 +9,7 @@ rm -Rf /tmp/install-tl*
 
 case "$(uname)" in
     "Darwin")
-        ./mitamae local -l debug roles/darwin.rb
+        ./mitamae local roles/darwin.rb
         ;;
 esac
 
