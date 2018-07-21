@@ -6,4 +6,6 @@ execute "mkdir -p #{homebrew_prefix} && curl -L #{repository} | tar xz --strip 1
     not_if "[[ -e #{brew} ]]"
 end
 
-execute "#{brew} update"
+execute "#{brew} update" do
+    only_if "brew install 2>&1 | grep -i \"error: unknown command\""
+end
