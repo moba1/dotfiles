@@ -16,10 +16,6 @@ execute "env TEXLIVE_INSTALL_PREFIX=\"#{install_dir}\" #{source}/install-tl -rep
     only_if "[[ -z \"$(ls -A #{install_dir})\" ]]"
 end
 
-execute "rm -Rf #{source}" do
-    only_if "[[ -d #{source} ]]"
-end
-
 tlmgr_path = "find #{install_dir} -iname tlmgr | grep bin | xargs"
 case node[:platform]
 when "darwin"
