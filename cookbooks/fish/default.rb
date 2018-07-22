@@ -11,7 +11,7 @@ package "fish"
         directory File.expand_path(package)
     else
         directory File.expand_path(package) do
-            mode 0755
+            mode "755"
             user ENV["USER"]
             group "1000"
         end
@@ -31,7 +31,7 @@ when "darwin"
 else
     file File.expand_path("~/.bash_profile") do
         content "exec fish"
-        mode 755
+        mode "755"
         user ENV["USER"]
         group "1000"
     end
