@@ -12,3 +12,4 @@ execute "#{brew} update" do
     only_if "brew install 2>&1 | grep -i \"error: unknown command\""
 end
 
+directory "#{homebrew_prefix}/sbin"
