@@ -2,16 +2,26 @@ case node[:platform]
 when "darwin"
     package "micro"
 else
-    binary_dir = "~/.local/bin"
-    group_id = 1000
+    group_id = "1000"
+    data_dir = "~/.local"
+    directory File.expand_path(data_dir) do
+        not_if "[ -d #{data_dir} ]"
+	mode "755"
+        owner ENV["USER"]
+	group group_id
+    end
+
+    binary_dir = "#{data_dir}/bin"
     directory File.expand_path(binary_dir) do
-        not_if "[ -e #{binary_dir} ]"
+        not_if "[ -d #{binary_dir} ]"
         mode "755"
         owner ENV["USER"]
         group group_id
     end
+ 
     repository = "https://getmic.ro"
-    execute "curl #{repository} | bash && chown #{ENV["USER"]}:#{group_id} micro && mv micro #{binary_dir}" do
+    execute "sudo -u #{ENV["USER"]} sh -c 'curl #{repository} | bash && mv micro #{binary_dir}'" do
         not_if "[ -e #{binary_dir}/micro ]"
     end
 end
+
