@@ -28,10 +28,6 @@ package "fish"
         "~/.config/fish/functions",
         "/files/functions"
     ],
-    [
-        "~/.config/fish/completions",
-        "/files/completions"
-    ]
 ].each { |link, target|
     link File.expand_path(link) do
         to File.expand_path(File.dirname(__FILE__) + target)
@@ -50,7 +46,7 @@ when "darwin"
         content "exec ~/.homebrew/bin/fish"
     end
 else
-    file File.expand_path("~/.bash_profile") do
+    file "#{ENV["HOME"]}/.bash_profile" do
         content "exec fish"
         mode "755"
         user ENV["USER"]
