@@ -21,7 +21,7 @@ case "$(uname)" in
         ./mitamae local roles/darwin.rb
         ;;
     "Linux")
-        sudo ./mitamae local roles/"$(get_linux_dist)".rb
+        sudo env USER=$USER ./mitamae local roles/"$(get_linux_dist)".rb
         ;;
 esac
 
