@@ -20,3 +20,6 @@ if platform.system() == "Darwin":
     $BASH_COMPLETIONS = (
         brew_prefix / "etc/bash_completion",
     )
+
+if platform.system() == "Darwin":
+    $LSCOLORS="gxfxcxxcFxdeagDxdxCxdB"
