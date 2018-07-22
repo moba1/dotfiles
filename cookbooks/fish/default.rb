@@ -47,7 +47,7 @@ when "darwin"
     end
 else
     link File.expand_path("~/.bash_profile") do
-        to File.expand_path(File.dirname(__FILE__) + "/files/bash_profile")
+        to File.expand_path(File.dirname(__FILE__) + "/files/.bash_profile")
         force true
     end
 end
