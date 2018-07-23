@@ -9,3 +9,7 @@ switch (uname)
 end
 
 set -gx PYTHONUSERBASE ~/.local
+
+set __fish_git_prompt_color_branch cyan
+set __fish_git_prompt_color_upstream_ahead green
+set __fish_git_prompt_color_upstream_behind magenta
