@@ -40,14 +40,7 @@ execute "sudo -u #{ENV["USER"]} curl #{source} > #{File.expand_path("~/.config/f
     not_if "[ -e #{File.expand_path("~/.config/fish/completions/docker.fish")} ]"
 end
 
-case node[:platform]
-when "darwin"
-    file File.expand_path("~/.bash_profile") do
-        content "exec ~/.homebrew/bin/fish"
-    end
-else
-    link File.expand_path("~/.bash_profile") do
-        to File.expand_path(File.dirname(__FILE__) + "/files/.bash_profile")
-        force true
-    end
+link File.expand_path("~/.bash_profile") do
+    to File.expand_path(File.dirname(__FILE__) + "/files/.bash_profile")
+    force true
 end
