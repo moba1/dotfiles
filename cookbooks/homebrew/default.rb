@@ -1,11 +1,9 @@
-homebrew_prefix = File.expand_path("~/.homebrew")
-repository = "https://github.com/Homebrew/homebrew/tarball/master"
+install_script = "https://raw.githubusercontent.com/Homebrew/install/master/install"
+homebrew_prefix = "/usr/local"
 brew = "#{homebrew_prefix}/bin/brew"
 
-directory homebrew_prefix
-
-execute "curl -L #{repository} | tar xz --strip 1 -C #{homebrew_prefix}" do
-    not_if "[[ -e #{brew} ]]"
+execute "echo | /usr/bin/ruby -e \"$(curl -fsSL #{install_script})\"" do
+    not_if "which brew"
 end
 
 execute "#{brew} update" do
