@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [ -e ~/.bash_profile ] && rm ~/.bash_profile
 [ -e /etc/skel/bash_profile ] && cp /etc/skel/bash_profile ~/.bash_profile
