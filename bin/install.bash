@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. ./bin/init.sh
+. ./bin/init.bash
 
 export PATH="/usr/local/bin:${PATH}"
 export PATH="~/.cargo/bin:${PATH}"
