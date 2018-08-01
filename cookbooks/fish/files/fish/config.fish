@@ -26,3 +26,6 @@ set __fish_git_prompt_char_untrackedfiles 'U'
 set __fish_git_prompt_char_cleanstate 'clean'
 set __fish_git_prompt_char_stashstate '^'
 set __fish_git_prompt_describe_style 'branch'
+
+# exec fish
+test $TERM != "screen"; and exec tmux
