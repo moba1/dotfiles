@@ -28,4 +28,5 @@ set __fish_git_prompt_char_stashstate '^'
 set __fish_git_prompt_describe_style 'branch'
 
 # exec fish
+set -gx TERM xterm-256color
 test $TERM != "screen"; and exec tmux
