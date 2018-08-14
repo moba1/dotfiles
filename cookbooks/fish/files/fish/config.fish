@@ -9,6 +9,7 @@ set -l GRB_LICENSE_FILE ~/.local/share/gurobi/gurobi.lic
 
 if [ -f $GRB_LICENSE_FILE ]
    set -gx GRB_LICENSE_FILE $GRB_LICENSE_FILE
+   set -gx GUROBI_HOME /Library/gurobi801/mac64/
 end
 
 # for git
