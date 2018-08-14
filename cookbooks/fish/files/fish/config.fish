@@ -5,6 +5,12 @@ set -l homebrew_prefix ~/.homebrew
 
 set -gx PYTHONUSERBASE ~/.local
 
+set -l GRB_LICENSE_FILE ~/.local/share/gurobi/gurobi.lic
+
+if [ -f $GRB_LICENSE_FILE ]
+   set -gx GRB_LICENSE_FILE $GRB_LICENSE_FILE
+end
+
 # for git
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
