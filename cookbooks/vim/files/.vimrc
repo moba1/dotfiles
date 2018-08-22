@@ -18,7 +18,6 @@ set whichwrap=b,s,h,l,<,>,[,]
 set sidescroll=1
 
 " seaerch
-
 set ignorecase
 set smartcase
 set incsearch
