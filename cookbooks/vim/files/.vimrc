@@ -37,3 +37,9 @@ set mouse=a
 " bell
 set visualbell t_vb=
 set noerrorbells
+
+" space
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
