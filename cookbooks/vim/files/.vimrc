@@ -10,6 +10,7 @@ set cmdheight=2
 " view
 set showmatch
 set list
+set ambiwidth=double
 
 " cursor
 set backspace=indent,eol,start
