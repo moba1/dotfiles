@@ -10,6 +10,7 @@ set cmdheight=2
 " view
 set showmatch
 set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set ambiwidth=double
 
 " cursor
