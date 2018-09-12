@@ -28,7 +28,12 @@ end
 # setup dein
 dein_cache_dir = File.join(home_dir, ".vim/.cache/dein")
 dein_dir = File.join(dein_cache_dir, 'repos/github.com/Shougo/dein.vim')
-directory dein_cache_dir
+p "sh #{dein_installer_path} #{dein_cache_dir}"
+directory dein_cache_dir do
+  mode "755"
+  user node[:username]
+  group node[:groupid]
+end
 if not File.exist?(dein_dir)
     execute "setup dein" do
         command "sh #{dein_installer_path} #{dein_cache_dir}"
