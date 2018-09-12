@@ -1,46 +1,59 @@
+include_recipe "../common/attribute.rb"
+
 package "fish"
 
-[
-    "~/.local/",
-    "~/.local/bin",
-    "~/.config",
-    "~/.config/fish",
-    "~/.config/fish/completions"
-].each { |package|
+home_dir =
     case node[:platform]
-    when "darwin"
-        directory File.expand_path(package)
+    when 'darwin'
+        node[:home][:mac]
     else
-        directory File.expand_path(package) do
+        node[:home][:other]
+    end
+current_dir = File.expand_path(File.dirname(__FILE__))
+
+dirs = [".local", ".local/bin", ".config", ".config/fish", ".config/fish/completions"]
+dirs.each { |target_dir|
+    dir = File.join(home_dir, target_dir)
+    case node[:platform]
+    when 'darwin'
+        directory dir
+    else
+        directory dir do
             mode "755"
-            user ENV["USER"]
-            group "1000"
+            user node[:username]
+            group node[:groupid]
         end
     end
 }
 
+
 [
     [
-        "~/.config/fish/config.fish",
-        "/files/fish/config.fish"
+        ".config/fish/config.fish",
+        "files/fish/config.fish"
     ],
     [
-        "~/.config/fish/functions",
-        "/files/fish/functions"
+        ".config/fish/functions",
+        "files/fish/functions"
     ],
-].each { |link, target|
-    link File.expand_path(link) do
-        to File.expand_path(File.dirname(__FILE__) + target)
+].each { |origin, dest|
+    link File.join(home_dir, origin) do
+        to File.join(current_dir, dest)
         force true
     end
 }
 
-source = "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish"
-execute "sudo -u #{ENV["USER"]} curl #{source} > #{File.expand_path("~/.config/fish/completions/docker.fish")}" do
-    not_if "[ -e #{File.expand_path("~/.config/fish/completions/docker.fish")} ]"
+docker_script_url = "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish"
+install_path = File.join(home_dir, ".config/fish/completions/docker.fish")
+if not File.exist?(install_path)
+    execute do
+        command "curl -o #{install_path} #{docker_script_url}" 
+        user node[:user]
+    end
 end
 
-link File.expand_path("~/.bash_profile") do
-    to File.expand_path(File.dirname(__FILE__) + "/files/.bash_profile")
+link File.join(home_dir, ".bash_profile") do
+    to File.join(current_dir, "files/.bash_profile")
     force true
 end
+
