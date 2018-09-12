@@ -1,5 +1,4 @@
 set nocompatible
-syntax on
 
 " status line
 set showcmd
@@ -44,4 +43,20 @@ set noerrorbells
 set expandtab
 set tabstop=2
 set shiftwidth=2
+
+" setup dein
+set runtimepath+=~/.vim/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.vim/.cache/dein')
+  call dein#begin('~/.vim/.cache/dein')
+
+  call dein#add('~/.vim/.cache/dein')
+  call dein#add('luochen1990/rainbow')
+  call dein#add('scrooloose/nerdtree')
+
+  call dein#end()
+  call dein#save_state()
+endif
+
+filetype plugin indent on
+syntax enable
 
