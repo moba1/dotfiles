@@ -11,6 +11,7 @@ set showmatch
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set ambiwidth=double
+set nu
 let g:rainbow_active = 1
 
 " cursor
