@@ -21,7 +21,7 @@ dein_installer_url = "https://raw.githubusercontent.com/Shougo/dein.vim/master/b
 if not File.exist?(dein_installer_path)
   execute "get dein.vim plugin" do
     command "curl -o #{dein_installer_path} #{dein_installer_url}"
-    user node[:user]
+    user node[:username]
   end
 end
 
@@ -32,7 +32,7 @@ directory dein_cache_dir
 if not File.exist?(dein_dir)
     execute "setup dein" do
         command "sh #{dein_installer_path} #{dein_cache_dir}"
-        user node[:user]
+        user node[:username]
     end
 end
 

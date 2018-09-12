@@ -48,7 +48,7 @@ install_path = File.join(home_dir, ".config/fish/completions/docker.fish")
 if not File.exist?(install_path)
     execute do
         command "curl -o #{install_path} #{docker_script_url}" 
-        user node[:user]
+        user node[:username]
     end
 end
 
