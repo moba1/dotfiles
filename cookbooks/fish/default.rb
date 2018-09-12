@@ -17,11 +17,17 @@ dirs.each { |target_dir|
     case node[:platform]
     when 'darwin'
         directory dir
+    when 'arch'
+        directory dir do
+            mode "755"
+            user node[:username]
+            group node[:groupid][:arch]
+        end
     else
         directory dir do
             mode "755"
             user node[:username]
-            group node[:groupid]
+            group node[:groupid][:other]
         end
     end
 }

@@ -11,6 +11,9 @@ get_linux_dist() {
     if [ -e /etc/debian_version ]
     then
         dist="debian"
+    elif type pacman 2>&1 >/dev/null
+    then
+        dist="arch"
     fi
 
     echo $dist
@@ -21,7 +24,7 @@ case "$(uname)" in
         ./mitamae local -l debug roles/darwin.rb
         ;;
     "Linux")
-        sudo env USER=$USER ./mitamae local roles/"$(get_linux_dist)".rb
+        sudo ./mitamae local roles/"$(get_linux_dist)".rb
         ;;
 esac
 

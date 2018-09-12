@@ -8,7 +8,10 @@ node.reverse_merge!(
 )
 
 node.reverse_merge!(
-    groupid: "1000"
+    groupid: {
+      arch: "985",
+      other: "1000"
+    }
 )
 
 node.reverse_merge!(
