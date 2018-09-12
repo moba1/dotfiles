@@ -60,3 +60,4 @@ endif
 filetype plugin indent on
 syntax enable
 
+map <C-n> :NERDTreeToggle<CR>
