@@ -61,3 +61,9 @@ filetype plugin indent on
 syntax enable
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-g> :NERDTreeFind<CR>
+map <C-j> :resize +5<CR>
+map <C-k> :resize -5<CR>
+map <C-h> :vertical resize -5<CR>
+map <C-l> :vertical resize +5<CR>
+
