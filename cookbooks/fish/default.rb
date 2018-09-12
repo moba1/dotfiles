@@ -46,7 +46,7 @@ dirs.each { |target_dir|
 docker_script_url = "https://raw.githubusercontent.com/docker/cli/master/contrib/completion/fish/docker.fish"
 install_path = File.join(home_dir, ".config/fish/completions/docker.fish")
 if not File.exist?(install_path)
-    execute do
+    execute "install docker.fish" do
         command "curl -o #{install_path} #{docker_script_url}" 
         user node[:username]
     end
