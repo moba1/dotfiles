@@ -53,6 +53,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('~/.vim/.cache/dein')
   call dein#add('luochen1990/rainbow')
   call dein#add('scrooloose/nerdtree')
+  call dein#add('rust-lang/rust.vim')
 
   call dein#end()
   call dein#save_state()
