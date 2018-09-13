@@ -74,3 +74,7 @@ map <C-k> :resize -5<CR>
 map <C-h> :vertical resize -5<CR>
 map <C-l> :vertical resize +5<CR>
 
+" for ocaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute 'set rtp+=' . g:opamshare . '/merlin/vim'
+
