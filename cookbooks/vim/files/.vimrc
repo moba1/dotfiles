@@ -13,6 +13,7 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set ambiwidth=double
 set nu
 let g:rainbow_active = 1
+set statusline=%F%m%r%h%w%=\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%lL,%vC][%p%%]\ [LEN=%L]
 
 " cursor
 set backspace=indent,eol,start
