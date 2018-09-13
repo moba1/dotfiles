@@ -66,7 +66,7 @@ endif
 filetype plugin indent on
 syntax enable
 
-map <C-n> :NERDTreeToggle<CR>
+map <C-b> :NERDTreeToggle<CR>
 map <C-g> :NERDTreeFind<CR>
 map <C-j> :resize +5<CR>
 map <C-k> :resize -5<CR>
