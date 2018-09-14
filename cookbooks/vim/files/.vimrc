@@ -85,3 +85,6 @@ map <C-l> :vertical resize +5<CR>
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute 'set rtp+=' . g:opamshare . '/merlin/vim'
 
+" for NERD commenter
+let g:NERDSpaceDelims=1
+
