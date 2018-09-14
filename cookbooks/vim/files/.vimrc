@@ -58,6 +58,8 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('kchmck/vim-coffee-script')
   call dein#add('Xuyuanp/nerdtree-git-plugin')
   call dein#add('posva/vim-vue')
+  call dein#add('digitaltoad/vim-pug')
+  call dein#add('wavded/vim-stylus')
 
   call dein#end()
   call dein#save_state()
