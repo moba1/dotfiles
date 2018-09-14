@@ -64,11 +64,12 @@ if dein#load_state('~/.vim/.cache/dein')
 
   call dein#end()
   call dein#save_state()
+  if dein#check_install()
+    call dein#install()
+  endif
 endif
 
-if dein#check_install()
-  call dein#install()
-endif
+
 
 filetype plugin indent on
 syntax enable
