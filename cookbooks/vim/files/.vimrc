@@ -60,6 +60,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('posva/vim-vue')
   call dein#add('digitaltoad/vim-pug')
   call dein#add('wavded/vim-stylus')
+  call dein#add('scrooloose/nerdcommenter')
 
   call dein#end()
   call dein#save_state()
