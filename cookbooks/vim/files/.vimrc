@@ -55,6 +55,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('luochen1990/rainbow')
   call dein#add('scrooloose/nerdtree')
   call dein#add('rust-lang/rust.vim')
+  call dein#add('Xuyuanp/nerdtree-git-plugin')
 
   call dein#end()
   call dein#save_state()
