@@ -1,6 +1,6 @@
 set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
-set -gx PATH ~/.local/bin ~/.cargo/bin $PATH
+set -gx PATH ~/.local/bin ~/.cargo/bin ~/.npm-packages/bin $PATH
 set -l homebrew_prefix ~/.homebrew
 
 set -gx PYTHONUSERBASE ~/.local
