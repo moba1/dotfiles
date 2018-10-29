@@ -2,7 +2,6 @@ set nocompatible
 
 " status line
 set showcmd
-set cursorline
 set laststatus=2
 set cmdheight=2
 
