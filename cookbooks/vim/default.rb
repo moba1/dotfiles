@@ -1,16 +1,6 @@
-include_recipe "../common/attribute.rb"
-
 package "vim"
 
-home_dir =
-    case node[:platform]
-    when 'darwin'
-        node[:home][:mac]
-    else
-        node[:home][:other]
-    end
-
-link File.join(home_dir, ".vimrc") do
+link File.join(node[:home], ".vimrc") do
     to File.join(File.expand_path(File.dirname(__FILE__)), "files/.vimrc")
     force true
 end
@@ -26,23 +16,17 @@ if not File.exist?(dein_installer_path)
 end
 
 # setup dein
-dein_cache_dir = File.join(home_dir, ".vim/.cache/dein")
+dein_cache_dir = File.join(node[:home], ".vim/.cache/dein")
 dein_dir = File.join(dein_cache_dir, 'repos/github.com/Shougo/dein.vim')
 p "sh #{dein_installer_path} #{dein_cache_dir}"
 case node[:platform]
 when 'darwin'
     directory dein_cache_dir
-when 'arch'
+else
     directory dein_cache_dir do
         mode "755"
         user node[:username]
-        group node[:groupid][:arch]
-    end
-else
-    directory dein_cache_dir do
-      mode "755"
-      user node[:username]
-      group node[:groupid][:other]
+        group node[:groupid]
     end
 end
 if not File.exist?(dein_dir)

@@ -5,28 +5,18 @@
 export PATH="/usr/local/bin:${PATH}"
 export PATH="~/.cargo/bin:${PATH}"
 
-get_linux_dist() {
-    dist="unsupported dist"
+function main() {
+  case "$(uname)" in
+    "Darwin")
+      ./mitamae local -l debug roles/darwin.rb
+      ;;
+    "Linux")
+      env username=$USER sudo -E ./mitamae local roles/linux.rb
+      ;;
+  esac
 
-    if [ -e /etc/debian_version ]
-    then
-        dist="debian"
-    elif type pacman 2>&1 >/dev/null
-    then
-        dist="arch"
-    fi
-
-    echo $dist
+  rm -f "mitamae"
 }
 
-case "$(uname)" in
-    "Darwin")
-        ./mitamae local -l debug roles/darwin.rb
-        ;;
-    "Linux")
-        sudo ./mitamae local roles/"$(get_linux_dist)".rb
-        ;;
-esac
-
-rm "mitamae"
+main
 
