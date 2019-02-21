@@ -1,6 +1,6 @@
 set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
-set -gx PATH ~/.local/bin ~/.cargo/bin ~/.npm-packages/bin $PATH
+set -gx PATH ~/.local/bin ~/.cargo/bin $PATH
 set -l homebrew_prefix ~/.homebrew
 
 set -gx PYTHONUSERBASE ~/.local
@@ -33,11 +33,4 @@ set __fish_git_prompt_char_untrackedfiles 'U'
 set __fish_git_prompt_char_cleanstate 'clean'
 set __fish_git_prompt_char_stashstate '^'
 set __fish_git_prompt_describe_style 'branch'
-
-# exec fish
-test -z "$TMUX"; and exec tmux; set -gx TERM xterm-256color
-
-# for opam
-set -l OPAM_INIT_SCRIPT ~/.opam/opam-init/init.fish
-test -f $OPAM_INIT_SCRIPT; source $OPAM_INIT_SCRIPT
 
