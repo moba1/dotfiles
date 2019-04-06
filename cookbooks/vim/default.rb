@@ -1,7 +1,7 @@
 package "vim"
 
 link File.join(node[:home], ".vimrc") do
-    to File.join(File.expand_path(File.dirname(__FILE__)), "files/.vimrc")
+    to File.join(File.expand_path(File.dirname(__FILE__)), "files", ".vimrc")
     force true
 end
 
