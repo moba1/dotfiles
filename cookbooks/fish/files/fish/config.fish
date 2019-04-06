@@ -1,16 +1,8 @@
 set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
 set -gx PATH ~/.local/bin ~/.cargo/bin $PATH
-set -l homebrew_prefix ~/.homebrew
 
 set -gx PYTHONUSERBASE ~/.local
-
-set -l GRB_LICENSE_FILE ~/.local/share/gurobi/gurobi.lic
-
-if [ -f $GRB_LICENSE_FILE ]
-   set -gx GRB_LICENSE_FILE $GRB_LICENSE_FILE
-   set -gx GUROBI_HOME /Library/gurobi801/mac64/
-end
 
 # for git
 set __fish_git_prompt_showdirtystate 'yes'
@@ -34,3 +26,7 @@ set __fish_git_prompt_char_cleanstate 'clean'
 set __fish_git_prompt_char_stashstate '^'
 set __fish_git_prompt_describe_style 'branch'
 
+set -l CUSTOM_FISH_FILE "~/.config/fish/custom.fish"
+if ls $CUSTOM_FISH_FILE >/dev/null 2>&1
+  source $CUSTOM_FISH_FILE
+end
