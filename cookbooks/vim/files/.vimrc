@@ -1,4 +1,5 @@
 set nocompatible
+set fileencoding=utf-8
 
 " status line
 set showcmd
