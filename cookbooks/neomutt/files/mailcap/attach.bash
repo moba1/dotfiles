@@ -1,9 +1,8 @@
 #!/bin/bash
 
 function open() {
-  local file=${1%.*}
   local ext=${1##*.}
-  local new_file=${file}-copy.${ext}
+  local new_file=$(python3 -c 'import tempfile; print(tempfile.mktemp())').${ext}
 
   if [ $(uname) = "Darwin" ]; then
     local open_command=/usr/bin/open
@@ -11,7 +10,7 @@ function open() {
     local open_command=xdg-open
   fi
 
-  cp $1 $new_file
+  cp -f $1 $new_file
   $open_command $new_file
 }
 
