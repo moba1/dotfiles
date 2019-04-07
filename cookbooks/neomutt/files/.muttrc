@@ -15,3 +15,4 @@ alternative_order text/plain text/enriched text/html
 set editor = 'vim -c "set fileencoding=utf-8"'
 
 source ~/.mutt/account/muttrc
+source ~/.mutt/color.muttrc

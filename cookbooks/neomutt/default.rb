@@ -23,3 +23,8 @@ else
     group node[:groupid]
   end
 end
+
+link File.join(mutt_dir, "color.muttrc") do
+  to File.join(File.expand_path(File.dirname(__FILE__)), "files", "mutt-colors-solarized", "mutt-colors-solarized-dark-16.muttrc")
+  force true
+end
