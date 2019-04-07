@@ -1,7 +1,9 @@
 package "neomutt"
 
+config_dir =File.join(File.expand_path(File.dirname(__FILE__)), "files")
+
 link File.join(node[:home], ".muttrc") do
-  to File.join(File.expand_path(File.dirname(__FILE__)), "files", ".muttrc")
+  to File.join(config_dir, ".muttrc")
   force true
 end
 
@@ -24,7 +26,6 @@ else
   end
 end
 
-config_dir =File.join(File.expand_path(File.dirname(__FILE__)), "files") 
 link File.join(mutt_dir, "color.muttrc") do
   to File.join(config_dir, "mutt-colors-solarized", "mutt-colors-solarized-dark-16.muttrc")
   force true
@@ -32,5 +33,10 @@ end
 
 link File.join(mutt_dir, "bind.muttrc") do
   to File.join(config_dir, "bind.muttrc")
+  force true
+end
+
+link File.join(mutt_dir, "mailcap") do
+  to File.join(config_dir, "mailcap")
   force true
 end
