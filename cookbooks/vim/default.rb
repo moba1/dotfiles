@@ -18,7 +18,6 @@ end
 # setup dein
 dein_cache_dir = File.join(node[:home], ".vim/.cache/dein")
 dein_dir = File.join(dein_cache_dir, 'repos/github.com/Shougo/dein.vim')
-p "sh #{dein_installer_path} #{dein_cache_dir}"
 case node[:platform]
 when 'darwin'
     directory dein_cache_dir
