@@ -80,6 +80,8 @@ map <C-j> :resize +5<CR>
 map <C-k> :resize -5<CR>
 map <C-h> :vertical resize -5<CR>
 map <C-l> :vertical resize +5<CR>
+imap <C-c> <esc>
+noremap! <C-c> <esc>
 
 " for ocaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
