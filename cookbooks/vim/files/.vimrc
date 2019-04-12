@@ -61,6 +61,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('digitaltoad/vim-pug')
   call dein#add('wavded/vim-stylus')
   call dein#add('scrooloose/nerdcommenter')
+  call dein#add('vim-python/python-syntax')
 
   call dein#end()
   call dein#save_state()
@@ -80,13 +81,12 @@ map <C-j> :resize +5<CR>
 map <C-k> :resize -5<CR>
 map <C-h> :vertical resize -5<CR>
 map <C-l> :vertical resize +5<CR>
+map <C-u> :undo<CR>
 imap <C-c> <esc>
 noremap! <C-c> <esc>
-
-" for ocaml
-let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
-execute 'set rtp+=' . g:opamshare . '/merlin/vim'
 
 " for NERD commenter
 let g:NERDSpaceDelims=1
 
+" for python-syntax
+let g:python_highlight_all = 1
