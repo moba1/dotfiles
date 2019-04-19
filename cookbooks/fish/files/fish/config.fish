@@ -40,3 +40,7 @@ set fish_color_operator bryellow --bold
 set fish_color_comment green --bold
 set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
+
+alias cat bat
+alias bcat hexyl
+
