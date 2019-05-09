@@ -62,6 +62,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('wavded/vim-stylus')
   call dein#add('scrooloose/nerdcommenter')
   call dein#add('vim-python/python-syntax')
+  call dein#add('dag/vim-fish')
 
   call dein#end()
   call dein#save_state()
