@@ -2,8 +2,6 @@ set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
 set -gx PATH ~/.local/bin ~/.cargo/bin $PATH
 
-set -gx PYTHONUSERBASE ~/.local
-
 # for git
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
@@ -40,6 +38,13 @@ set fish_color_operator bryellow --bold
 set fish_color_comment green --bold
 set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
+
+# for pyenv
+if type pyenv > /de/null 2>&1
+  set -gx PYENV_ROOT ~/.pyenv
+  status --is-interactive; and pyenv init - | source
+  status --is-interactive; and pyenv virtualenv-init - | source
+end
 
 alias cat bat
 alias bcat hexyl
