@@ -64,6 +64,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('vim-python/python-syntax')
   call dein#add('dag/vim-fish')
   call dein#add('editorconfig/editorconfig-vim')
+  call dein#add('ConradIrwin/vim-bracketed-paste')
 
   call dein#end()
   call dein#save_state()
@@ -93,5 +94,7 @@ let g:NERDSpaceDelims=1
 " for python-syntax
 let g:python_highlight_all = 1
 
+" for reStructuredText
 autocmd BufNewFile,BufRead *.rst highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufNewFile,BufRead *.rst match OverLength /\%71v.\+/
+
