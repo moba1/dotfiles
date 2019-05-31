@@ -6,3 +6,5 @@ function fish_greeting
   echo "   `-._  _.:' `-.\\"
   echo "       `` \\;"
 end
+
+
