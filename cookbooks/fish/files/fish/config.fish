@@ -40,7 +40,7 @@ set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
 
 # for pyenv
-if type pyenv > /de/null 2>&1
+if type pyenv > /dev/null 2>&1
   set -gx PYENV_ROOT ~/.pyenv
   status --is-interactive; and pyenv init - | source
   status --is-interactive; and pyenv virtualenv-init - | source
