@@ -18,3 +18,6 @@ source ~/.mutt/account/muttrc
 source ~/.mutt/color.muttrc
 source ~/.mutt/bind.muttrc
 set mailcap_path = ~/.mutt/mailcap/mailcap
+
+set mark_old = no
+
