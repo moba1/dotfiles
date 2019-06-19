@@ -1,3 +1,4 @@
 .DS_Store
 
-cookbooks/fish/files/**/fisher.fish
+cookbooks/fish/files/fish/functions/*
+!cookbooks/fish/files/fish/functions/fish_*
