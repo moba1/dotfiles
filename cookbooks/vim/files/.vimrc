@@ -73,8 +73,6 @@ if dein#load_state('~/.vim/.cache/dein')
   endif
 endif
 
-
-
 filetype plugin indent on
 syntax enable
 
@@ -90,6 +88,8 @@ noremap! <C-c> <esc>
 
 " for NERD commenter
 let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
+let mapleader=","
 
 " for python-syntax
 let g:python_highlight_all = 1
