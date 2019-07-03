@@ -49,3 +49,9 @@ end
 alias cat bat
 alias bcat hexyl
 
+set -l node_bin ~/.node_modules/bin
+if test -d $node_bin
+  set -gx PATH   $PATH
+  set -gx npm_config_prefix ~/.node_modules
+end
+

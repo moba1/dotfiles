@@ -34,7 +34,7 @@ set autoread
 set noswapfile
 
 " environment
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamed,unnamedplus,autoselect
 set mouse=a
 
 " bell
