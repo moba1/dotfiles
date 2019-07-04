@@ -96,9 +96,7 @@ autocmd BufNewFile,BufRead *.rst highlight OverLength ctermbg=red ctermfg=white 
 autocmd BufNewFile,BufRead *.rst match OverLength /\%71v.\+/
 
 " clipboard
-set clipboard&
-noremap y "+y
-noremap p "+p
+set clipboard+=unnamedplus
 
 " mouse
 set mouse=a
