@@ -33,13 +33,6 @@ set confirm
 set autoread
 set noswapfile
 
-" environment
-if has("unix")
-  vmap y :w !xsel -ib<CR><CR>
-else
-  set clipboard+=unnamedplus,autoselect
-endif
-set mouse=a
 
 " bell
 set visualbell t_vb=
@@ -102,3 +95,10 @@ let g:python_highlight_all = 1
 autocmd BufNewFile,BufRead *.rst highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufNewFile,BufRead *.rst match OverLength /\%71v.\+/
 
+" clipboard
+set clipboard&
+noremap y "+y
+noremap p "+p
+
+" mouse
+set mouse=a
