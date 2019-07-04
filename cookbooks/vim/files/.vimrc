@@ -34,7 +34,11 @@ set autoread
 set noswapfile
 
 " environment
-set clipboard=unnamed,unnamedplus,autoselect
+if has("unix")
+  vmap y :w !xsel -ib<CR><CR>
+else
+  set clipboard+=unnamedplus,autoselect
+endif
 set mouse=a
 
 " bell
