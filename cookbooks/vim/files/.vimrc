@@ -62,6 +62,7 @@ if dein#load_state('~/.vim/.cache/dein')
   call dein#add('dag/vim-fish')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('ConradIrwin/vim-bracketed-paste')
+  call dein#add('lifepillar/vim-solarized8')
 
   call dein#end()
   call dein#save_state()
@@ -100,3 +101,11 @@ set clipboard+=unnamedplus
 
 " mouse
 set mouse=a
+
+"colorscheme slate
+
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
+colorscheme solarized8

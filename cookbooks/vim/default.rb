@@ -15,8 +15,10 @@ if not File.exist?(dein_installer_path)
   end
 end
 
+vim_dir = File.join(node[:home], ".vim")
+
 # setup dein
-dein_cache_dir = File.join(node[:home], ".vim/.cache/dein")
+dein_cache_dir = File.join(vim_dir, ".cache/dein")
 dein_dir = File.join(dein_cache_dir, 'repos/github.com/Shougo/dein.vim')
 case node[:platform]
 when 'darwin'
@@ -35,3 +37,21 @@ if not File.exist?(dein_dir)
     end
 end
 
+# install color scheme
+color_scheme_dir = File.join(vim_dir, "colors")
+case node[:platform]
+when 'darwin'
+  directory color_scheme_dir
+else
+    directory color_scheme_dir do
+        mode "755"
+        user node[:username]
+        group node[:groupid]
+    end
+end
+if not File.exist?(color_scheme_dir)
+    execute "setup dein" do
+      command "curl https://raw.githubusercontent.com/lifepillar/vim-solarized8/master/colors/solarized8_flat.vim > #{File.join(vim_dir, "solarized8.vim")}"
+        user node[:username]
+    end
+end
