@@ -1,6 +1,6 @@
 node.reverse_merge!(
   home: "/home/#{ENV['username']}",
-  groupid: "users",
+  groupid: ENV['groups'],
   username: ENV['username']
 )
 

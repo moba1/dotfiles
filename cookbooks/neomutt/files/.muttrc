@@ -6,7 +6,8 @@ set mbox_type = Maildir
 
 set use_from = yes
 set sleep_time = 0
-set assumed_charset = "iso-2022-jp:euc-jp:shift_jis:utf-8"
+set charset = "utf-8"
+set assumed_charset = "utf-8:iso-2022-jp:euc-jp:shift-jis"
 set header_cache = ~/.mutt/cache
 
 auto_view text/html
