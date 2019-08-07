@@ -51,7 +51,7 @@ else
 end
 if not File.exist?(color_scheme_dir)
     execute "setup dein" do
-      command "curl https://raw.githubusercontent.com/lifepillar/vim-solarized8/master/colors/solarized8_flat.vim > #{File.join(color_vim_dir, "solarized8.vim")}"
+      command "curl https://raw.githubusercontent.com/lifepillar/vim-solarized8/master/colors/solarized8_flat.vim > #{File.join(color_scheme_dir, "solarized8.vim")}"
         user node[:username]
     end
 end
