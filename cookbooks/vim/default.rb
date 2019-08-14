@@ -18,8 +18,8 @@ end
 vim_dir = File.join(node[:home], ".vim")
 
 # setup dein
-dein_cache_dir = File.join(vim_dir, ".cache/dein")
-dein_dir = File.join(dein_cache_dir, 'repos/github.com/Shougo/dein.vim')
+dein_cache_dir = File.join(node[:home], ".cache", "dein")
+dein_dir = File.join(dein_cache_dir, 'repos', 'github.com', 'Shougo', 'dein.vim')
 case node[:platform]
 when 'darwin'
     directory dein_cache_dir

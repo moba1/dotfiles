@@ -44,11 +44,11 @@ set tabstop=2
 set shiftwidth=2
 
 " setup dein
-set runtimepath+=~/.vim/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.vim/.cache/dein')
-  call dein#begin('~/.vim/.cache/dein')
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+if dein#load_state('~/.cache/dein')
+  call dein#begin('~/.cache/dein')
 
-  call dein#add('~/.vim/.cache/dein')
+  call dein#add('~/.cache/dein')
   call dein#add('luochen1990/rainbow')
   call dein#add('scrooloose/nerdtree')
   call dein#add('rust-lang/rust.vim')
