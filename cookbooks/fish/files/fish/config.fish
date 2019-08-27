@@ -55,3 +55,8 @@ if test -d $node_bin
   set -gx npm_config_prefix ~/.node_modules
 end
 
+set -l local_config ~/.config/fish/functions/local.fish
+if test -f $local_config
+  source $local_config
+end
+
