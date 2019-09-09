@@ -27,7 +27,6 @@ markup=pango
 interval=2
 
 [volume]
-label=
 command=python ~/.config/i3blocks/scripts/volume.py
 markup=pango
 interval=1

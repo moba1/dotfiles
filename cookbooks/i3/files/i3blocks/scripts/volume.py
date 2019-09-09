@@ -11,9 +11,15 @@ class Volume(object):
         self.__is_mute = output == 'yes'
 
     def __repr__(self):
+        volume = max(float(self.__left[:-1]), float(self.__right[:-1]))
+        volume_message = f"L: {self.__left} R: {self.__right}"
         if self.__is_mute:
-            return f"<b><span color='#dc322f'>mute</span></b>"
-        return f"L: {self.__left} R: {self.__right}"
+            return f"\uf6a9 <b><span color='#dc322f'>mute</span></b>"
+        elif volume <= 10.0:
+            return f"\uf026 {volume_message}"
+        elif volume <= 30.0:
+            return f"\uf027 {volume_message}"
+        return f"\uf028 {volume_message}"
 
 def main():
     print(Volume('Master'))
