@@ -18,10 +18,10 @@ esac
 
 source_url="https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_platform}.tar.gz"
 tmp="/tmp/${mitamae_platform}.tar.gz"
-if which wget &> /dev/null
+if command -v wget &> /dev/null
 then
     wget -O "${tmp}" -q "${source_url}"
-elif which curl &>/dev/null
+elif command -v &>/dev/null
 then
     curl -L "${source_url}" -o "${tmp}"
 else

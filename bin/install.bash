@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-. ./bin/init.bash
+SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+. "$SRC_DIR"/init.bash
 
 export PATH="/usr/local/bin:${PATH}"
-export PATH="~/.cargo/bin:${PATH}"
+export PATH="$HOME/.cargo/bin:${PATH}"
 
 function main() {
   case "$(uname)" in
@@ -11,7 +12,7 @@ function main() {
       ./mitamae local -l debug roles/darwin.rb
       ;;
     "Linux")
-      env username=$USER sudo -E ./mitamae local roles/linux.rb
+      env username="$USER" sudo -E ./mitamae local roles/linux.rb
       ;;
   esac
 
