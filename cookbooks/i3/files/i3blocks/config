@@ -1,11 +1,11 @@
 [cpu]
-label=
+label= 
 command=python ~/.config/i3blocks/scripts/cpu.py
 markup=pango
 interval=2
 
 [memory]
-label=
+label= 
 command=python ~/.config/i3blocks/scripts/memory.py
 markup=pango
 interval=2
