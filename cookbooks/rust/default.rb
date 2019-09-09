@@ -5,3 +5,4 @@ if not File.exist?(rustup_exe)
         user node[:username]
     end
 end
+
