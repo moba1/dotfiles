@@ -6,13 +6,20 @@ package "gdm"
 
 case node[:platform]
 when 'debian', 'ubuntu', 'mint'
-  pakcage "fonts-font-awesome"
+  package "fonts-font-awesome"
+  package "fonts-hack-ttf"
 when 'arch'
   package "ttf-font-awesome"
+  package "ttf-hack"
 when 'redhat', 'fedora'
   package "fontawesome-fonts-web"
+  package "hack-fonts"
 when 'opensuse'
   package "fontawesome-fonts"
+  package "hack-fonts"
+when 'gentoo'
+  package "media-fonts/fontawesome"
+  package "media-fonts/hack"
 end
 
 config_dir = File.join(node[:home], ".config")
