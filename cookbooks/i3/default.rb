@@ -3,6 +3,7 @@ package "i3blocks"
 package "dmenu"
 package "gnome-screensaver"
 package "gdm"
+package "sysstat"
 
 case node[:platform]
 when 'debian', 'ubuntu', 'mint'
