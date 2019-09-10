@@ -4,6 +4,9 @@
 
 import subprocess
 import sys
+import re
+import itertools
+import enum
 
 def get_ipv4_address(device_name):
     '''
@@ -119,9 +122,52 @@ class Wireless(object):
                 message = self.__ipv4_address
         return f"\uf1eb {message}"
 
+class NetworkInterfaceType(enum.Enum):
+    ETHERNET = 1
+    WIRELESS = 2
+    OTHER = 3
+
+def find_network_interfaces():
+    '''
+    ehternetやwirelessなネットワークインターフェースを探す
+    '''
+    def sort_interface_type(interface):
+        '''
+        ネットワークカードの種類に応じた同値類に振り分けるために利用されるキー関数
+        '''
+        if re.search(r"en.*", interface):
+            return NetworkInterfaceType.ETHERNET
+        elif re.search(r"wl.*", interface):
+            return NetworkInterfaceType.WIRELESS
+        return NetworkInterfaceType.OTHER
+
+    command = f"ip -o a | awk '{{print $2}}' | uniq"
+    output = subprocess.check_output(command,  shell=True).decode('utf-8').rstrip()
+    # インターフェースを種別に対する同値類にする
+    # ただし、返すときはgroupbyが中身をイテレータとして
+    # 返してくるので、list化して返す
+    return dict(
+        map(lambda pair: (pair[0], list(pair[1])),
+            itertools.groupby(
+                output.split("\n"),
+                sort_interface_type
+            )
+        )
+    )
+
 def main():
-    network_status = map(str, [Ethernet(sys.argv[1]), Wireless(sys.argv[2])])
-    print(' '.join(filter(lambda x: len(x) != 0, network_status)))
+    # ネットワーク種別で同値類に振り分け
+    network_interfaces_equivalence_class = find_network_interfaces()
+
+    network_interfaces = []
+    # EthernetとWirelessなものだけ取り出して表示する
+    if NetworkInterfaceType.ETHERNET in network_interfaces_equivalence_class:
+        network_interfaces += \
+            list(map(Ethernet, network_interfaces_equivalence_class[NetworkInterfaceType.ETHERNET]))
+    elif NetworkInterfaceType.WIRELESS in network_interfaces_equivalence_class:
+        network_interfaces += \
+            list(map(Wireless, network_interfaces_equivalence_class[NetworkInterfaceType.WIRELESS]))
+    print(' '.join(map(str, network_interfaces)))
 
 main()
 
