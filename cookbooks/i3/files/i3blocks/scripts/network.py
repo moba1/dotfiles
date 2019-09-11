@@ -135,13 +135,13 @@ def find_network_interfaces():
         '''
         ネットワークカードの種類に応じた同値類に振り分けるために利用されるキー関数
         '''
-        if re.search(r"en.*", interface):
+        if re.search(r"e(n|th).*", interface):
             return NetworkInterfaceType.ETHERNET
         elif re.search(r"wl.*", interface):
             return NetworkInterfaceType.WIRELESS
         return NetworkInterfaceType.OTHER
 
-    command = f"ip -o a | awk '{{print $2}}' | uniq"
+    command = f"ip -o link | awk '{{print $2}}' | uniq"
     output = subprocess.check_output(command,  shell=True).decode('utf-8').rstrip()
     # インターフェースを種別に対する同値類にする
     # ただし、返すときはgroupbyが中身をイテレータとして
@@ -163,10 +163,10 @@ def main():
     # EthernetとWirelessなものだけ取り出して表示する
     if NetworkInterfaceType.ETHERNET in network_interfaces_equivalence_class:
         network_interfaces += \
-            list(map(Ethernet, network_interfaces_equivalence_class[NetworkInterfaceType.ETHERNET]))
-    elif NetworkInterfaceType.WIRELESS in network_interfaces_equivalence_class:
+                list(map(lambda dn: Ethernet(dn[:-1]), network_interfaces_equivalence_class[NetworkInterfaceType.ETHERNET]))
+    if NetworkInterfaceType.WIRELESS in network_interfaces_equivalence_class:
         network_interfaces += \
-            list(map(Wireless, network_interfaces_equivalence_class[NetworkInterfaceType.WIRELESS]))
+                list(map(lambda dn: Wireless(dn[:-1]), network_interfaces_equivalence_class[NetworkInterfaceType.WIRELESS]))
     print(' '.join(map(str, network_interfaces)))
 
 main()
