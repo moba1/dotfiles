@@ -22,7 +22,7 @@ interval=1
 color=#002b36
 
 [disk]
-command=python ~/.config/i3blocks/scripts/disk.py
+command=python ~/.config/i3blocks/scripts/storage.py
 markup=pango
 interval=1
 
