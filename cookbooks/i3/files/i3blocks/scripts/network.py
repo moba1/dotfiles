@@ -51,7 +51,7 @@ class Ethernet(object):
             # リリースされていない可能性はあるが、そもそも
             # 通信ができないので、リンクが
             # 接続されていないものとして扱う
-            message = '<b><span color="#dc322f">no link</span></b>'
+            message = '<b><span color="#dc322f">down</span></b>'
         elif len(self.__ipv4_address) == 0:
             # リンクは接続されているが、IPアドレスが割り振られていない
             message = '<b><span color="#dc322f">no ip</span></b>'
