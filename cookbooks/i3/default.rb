@@ -38,3 +38,12 @@ link File.join(config_dir, "i3blocks") do
   force true
 end
 
+if node[:platform] == 'arch'
+  package "dunst"
+
+  link File.join(config_dir, "dunst") do
+    to File.join(files_dir, "dunst")
+    force true
+  end
+end
+
