@@ -81,7 +81,7 @@ class Disk(object):
 
         self.__available, self.__used = map(
             ByteSize,
-            map(int, output.strip().split(' '))
+            map(int, re.sub('\s+', ' ', output.strip()).split(' '))
         )
         self.__byte_unit = byte_unit
         self.__partition = partition
