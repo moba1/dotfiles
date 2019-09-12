@@ -135,9 +135,9 @@ def find_network_interfaces():
         '''
         ネットワークカードの種類に応じた同値類に振り分けるために利用されるキー関数
         '''
-        if re.search(r"e(n|th).*", interface):
+        if re.search(r"^e(n|th).*", interface):
             return NetworkInterfaceType.ETHERNET
-        elif re.search(r"wl.*", interface):
+        elif re.search(r"^wl.*", interface):
             return NetworkInterfaceType.WIRELESS
         return NetworkInterfaceType.OTHER
 
