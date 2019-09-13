@@ -9,7 +9,7 @@ export PATH="$HOME/.cargo/bin:${PATH}"
 function main() {
   case "$(uname)" in
     "Darwin")
-      ./mitamae local -l debug roles/darwin.rb
+      ./mitamae local roles/darwin.rb
       ;;
     "Linux")
       env username="$USER" sudo -E ./mitamae local roles/linux.rb
