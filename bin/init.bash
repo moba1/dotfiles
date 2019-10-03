@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# set -ex
-
 mitamae_version="1.6.2"
 case "$(uname)" in
     "Linux")

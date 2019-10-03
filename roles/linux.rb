@@ -5,5 +5,7 @@ node.reverse_merge!(
 )
 
 include_recipe "./common"
-include_recipe "../cookbooks/i3/default"
+if ENV['gui'] == 'on'
+  include_recipe "../cookbooks/i3/default"
+end
 
