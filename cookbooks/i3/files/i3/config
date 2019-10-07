@@ -51,12 +51,6 @@ bindsym $mod+Shift+q kill
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -198,7 +192,7 @@ bar {
 bindsym $mod+d exec "dmenu_run -nf '#FDF6E3' -nb '#073642' -sb '#8D9900' -sf '#002B36' -fn 'monospace-10' -p 'program >'"
 
 set $Locker gnome-screensaver-command -l
-bindsym $mod+Shift+l exec --no-startup-id $Locker
+bindsym $mod+l exec --no-startup-id $Locker
 
 set $mode_system (l) lock (L) logout (s) suspend (r) reboot (S) shutdown
 mode "$mode_system" {
