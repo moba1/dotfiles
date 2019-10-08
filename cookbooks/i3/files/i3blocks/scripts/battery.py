@@ -47,7 +47,7 @@ class Battery(object):
         has_power_supply_status = hasattr(self,  '_power_supply_status')
         if not has_remain_rate and not has_power_supply_status:
             # バッテリーがはずされた状態
-            return "\uf244 <b><span color='#dc322f'>no battery</span></b>"
+            return "\uf1e6 pluged"
         elif has_remain_rate and has_power_supply_status:
             # バッテリーの情報が正しく取得できた場合
             battery_status_message_templat = ''

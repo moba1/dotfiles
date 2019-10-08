@@ -33,11 +33,11 @@ class Cpu(object):
     def __repr__(self):
         printable_usage = "{:.2f}%".format(self.__usage)
         if self.__usage >= 70:
-            return f"<b><span color='#cb4b16'>{printable_usage}</span></b>"
+            printable_usage = f"<b><span color='#cb4b16'>{printable_usage}</span></b>"
         elif self.__usage >= 90.0:
-            return f"<b><span color='#dc322f'>{printable_usage}%</span></b>"
+            printable_usage = f"<b><span color='#dc322f'>{printable_usage}%</span></b>"
 
-        return printable_usage
+        return f"\uf2db {printable_usage}"
 
 def main():
     print(f"{Cpu()} {CpuTemperature()}")
