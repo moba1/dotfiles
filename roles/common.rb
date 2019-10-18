@@ -1,6 +1,13 @@
-include_recipe "../cookbooks/rcs/default"
-include_recipe "../cookbooks/rust/default"
-include_recipe "../cookbooks/fish/default"
-include_recipe "../cookbooks/tmux/default"
-include_recipe "../cookbooks/vim/default"
-include_recipe "../cookbooks/neomutt/default"
+packages = [
+  "rcs",
+  "rust",
+  "fish",
+  "tmux",
+  "vim",
+  "neomutt",
+  "git"
+]
+for pack in packages do
+  include_recipe File.join("..", "cookbooks", pack, "default")
+end
+
