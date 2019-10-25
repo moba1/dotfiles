@@ -115,9 +115,10 @@ def get_disks():
         'sd[a-zA-Z][0-9]*'
     ]
     exclude_conditions = [
-        '.*\\/efi(|\\/.*)'
+        '.*\\/efi(|\\/.*)',
+        '\/boot'
     ]
-    command = f"df | awk '$1 ~ /\/dev\/({'|'.join(allow_disk_type_regexes)})/' | awk '$1 !~ /({'|'.join(exclude_conditions)})/' | awk '{{print $1}}'"
+    command = f"df | awk '$1 ~ /\/dev\/({'|'.join(allow_disk_type_regexes)})/' | awk '$6 !~ /({'|'.join(exclude_conditions)})/' | awk '{{print $1}}'"
     output = subprocess.check_output(command, shell=True).decode('UTF-8').rstrip()
 
     return output.split("\n")
