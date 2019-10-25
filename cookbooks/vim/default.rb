@@ -1,9 +1,20 @@
 package "vim"
 package "neovim"
 
+vimrc_path = File.join(File.expand_path(File.dirname(__FILE__)), "files", ".vimrc")
 link File.join(node[:home], ".vimrc") do
-    to File.join(File.expand_path(File.dirname(__FILE__)), "files", ".vimrc")
+    to vimrc_path
     force true
+end
+if node[:platform] != 'darwin'
+  nvim_config_dir = File.join(node[:home], ".config", "nvim")
+  directory nvim_config_dir do
+    user node[:username]
+  end
+  link File.join(nvim_config_dir, "init.vim") do
+    to vimrc_path
+    force true
+  end
 end
 
 # get dein.vim installer
