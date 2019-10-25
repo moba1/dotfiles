@@ -20,11 +20,6 @@ markup=pango
 interval=1
 color=#002b36
 
-[disk]
-command=python3 ~/.config/i3blocks/scripts/storage.py
-markup=pango
-interval=1
-
 [volume]
 command=python3 ~/.config/i3blocks/scripts/volume.py
 markup=pango
