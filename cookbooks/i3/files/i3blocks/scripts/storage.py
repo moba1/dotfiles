@@ -111,7 +111,13 @@ class Disk(object):
         return f"{disk} {raw_disk_usage_message}"
 
 def get_disks():
-    command = "df | awk '$6 != \"/boot\"' | awk 'match($1,\"/dev/\") != 0' | awk '{print $1}'"
+    allow_disk_type_regexes = [
+        'sd[a-zA-Z][0-9]*'
+    ]
+    exclude_conditions = [
+        '.*\\/efi(|\\/.*)'
+    ]
+    command = f"df | awk '$1 ~ /\/dev\/({'|'.join(allow_disk_type_regexes)})/' | awk '$1 !~ /({'|'.join(exclude_conditions)})/' | awk '{{print $1}}'"
     output = subprocess.check_output(command, shell=True).decode('UTF-8').rstrip()
 
     return output.split("\n")

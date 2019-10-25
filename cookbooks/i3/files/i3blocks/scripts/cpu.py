@@ -4,10 +4,16 @@ import glob
 
 class CpuTemperature(object):
     def __init__(self):
-        with open('/sys/class/thermal/thermal_zone0/temp') as f:
-            self.__temperature = int(f.read()) // 1000
+        try:
+            with open('/sys/class/thermal/thermal_zone0/temp') as f:
+                self.__temperature = int(f.read()) // 1000
+        except:
+            self.__temperature = None
 
     def __repr__(self):
+        if self.__temperature is None:
+            return ''
+
         temperature = f"{self.__temperature} ℃"
         if self.__temperature >= 80:
             return f"<b><span color='#dc322f'>\uf2c7 {temperature}</span></b>"
@@ -40,7 +46,8 @@ class Cpu(object):
         return f"\uf2db {printable_usage}"
 
 def main():
-    print(f"{Cpu()} {CpuTemperature()}")
+    cpu_temp_mesasge = str(CpuTemperature())
+    print(f"{Cpu()}{'' if len(cpu_temp_mesasge) == 0 else f' {cpu_temp_mesasge}'}")
 
 main()
 
