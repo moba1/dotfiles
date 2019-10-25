@@ -17,6 +17,6 @@ end
 execute "install cargo-update" do
   command "#{File.join(cargo_bin, "cargo")} install --force cargo-update"
   user node[:username]
-  not_if "cargo install-update --all"
+  not_if "cargo install-update --help"
 end
 

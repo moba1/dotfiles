@@ -2,10 +2,16 @@ package "i3"
 package "i3blocks"
 package "dmenu"
 package "gnome-screensaver"
-package "gdm"
 package "sysstat"
 package "pulseaudio"
 package "mailnag"
+
+case node[:platform]
+when 'debian', 'ubuntu', 'mint'
+  package "gdm3"
+else
+  package "gdm"
+end
 
 case node[:platform]
 when 'debian', 'ubuntu', 'mint'
