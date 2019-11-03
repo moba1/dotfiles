@@ -5,6 +5,7 @@ package "gnome-screensaver"
 package "sysstat"
 package "pulseaudio"
 package "mailnag"
+package "compton"
 
 case node[:platform]
 when 'debian', 'ubuntu', 'mint'
