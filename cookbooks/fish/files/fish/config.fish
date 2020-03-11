@@ -60,3 +60,6 @@ if test -f $local_config
   source $local_config
 end
 
+if test -n "$SSH_CONNECTION"
+  set -x TERM xterm-256color
+end
