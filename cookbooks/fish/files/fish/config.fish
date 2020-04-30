@@ -63,3 +63,7 @@ end
 if test -n "$SSH_CONNECTION"
   set -x TERM xterm-256color
 end
+
+if type -q opam
+  eval (opam config env)
+end
