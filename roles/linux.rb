@@ -8,4 +8,5 @@ include_recipe "./common"
 if ENV['gui'] == 'on'
   include_recipe "../cookbooks/i3/default"
 end
+include_recipe "../cookbooks/lastpass/default"
 
