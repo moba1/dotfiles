@@ -63,6 +63,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('editorconfig/editorconfig-vim')
   call dein#add('ConradIrwin/vim-bracketed-paste')
   call dein#add('lifepillar/vim-solarized8')
+  call dein#add('altercation/vim-colors-solarized')
 
   call dein#end()
   call dein#save_state()

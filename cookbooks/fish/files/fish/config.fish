@@ -64,6 +64,11 @@ if test -n "$SSH_CONNECTION"
   set -x TERM xterm-256color
 end
 
+if type -q nodenv
+  alias node='eval (nodenv whence --path node)'
+  alias npm='eval (nodenv whence --path npm)'
+end
+
 if type -q opam
   eval (opam config env)
 end
