@@ -66,3 +66,10 @@ end
 if type -q opam
   eval (opam config env)
 end
+
+if [ -d ~/.nodenv/bin ]
+  set -Ux fish_user_paths ~/.nodenv/bin $fish_user_paths
+end
+if type -q nodenv
+  status --is-interactive; and source (nodenv init -|psub)
+end
