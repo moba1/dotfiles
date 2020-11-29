@@ -24,9 +24,9 @@ set __fish_git_prompt_char_cleanstate 'clean'
 set __fish_git_prompt_char_stashstate '^'
 set __fish_git_prompt_describe_style 'branch'
 
-set -l CUSTOM_FISH_FILE "~/.config/fish/custom.fish"
-if ls $CUSTOM_FISH_FILE >/dev/null 2>&1
-  source $CUSTOM_FISH_FILE
+set -l CUSTOM_FISH_FILE ~/.config/fish/custom.fish
+if ls "$CUSTOM_FISH_FILE" >/dev/null 2>&1
+  source "$CUSTOM_FISH_FILE"
 end
 
 # set color
