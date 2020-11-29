@@ -47,6 +47,7 @@ set shiftwidth=2
 " general key map
 imap <C-c> <esc>
 noremap! <C-c> <esc>
+noremap <C-r> :redraw!<CR>
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -66,9 +67,16 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 
-map <C-b> :NERDTreeToggle<CR>
+" nerdtree
+noremap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowClean = 1
+
+noremap <C-l>h :LspHover<CR>
+noremap <C-l>d :LspDefinition<CR>
+noremap <C-l>D :LspDeclaration<CR>
+noremap <C-l>p :LspPeekDefinition<CR>
+noremap <C-l>P :LspPeekDeclaration<CR>
 
 " clipboard
 set clipboard=unnamedplus
@@ -81,6 +89,4 @@ try
   colorscheme solarized
   set background=dark
 catch
-  echohl WarningMsg
-  echo 'Warning: solarized plugin not installed'
 endtry
