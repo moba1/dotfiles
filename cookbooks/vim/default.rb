@@ -10,7 +10,7 @@ else
 end
 package "neovim"
 
-vimrc_path = File.join(File.expand_path(File.dirname(__FILE__)), "files", ".vimrc")
+vimrc_path = File.join(File.expand_path(File.dirname(__FILE__)), "files", "vimrc")
 link File.join(node[:home], ".vimrc") do
     to vimrc_path
     force true
