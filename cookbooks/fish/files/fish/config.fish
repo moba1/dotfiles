@@ -39,37 +39,13 @@ set fish_color_comment green --bold
 set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
 
-# for pyenv
-if type pyenv > /dev/null 2>&1
-  set -gx PYENV_ROOT ~/.pyenv
-  status --is-interactive; and pyenv init - | source
-  status --is-interactive; and pyenv virtualenv-init - | source
-end
-
 alias cat bat
-alias bcat hexyl
-
-if type -q nodenv
-  set -gx PATH ~/.nodenv/shims $PATH
-end
-
-set -l local_config ~/.config/fish/functions/local.fish
-if test -f $local_config
-  source $local_config
-end
 
 if test -n "$SSH_CONNECTION"
   set -x TERM xterm-256color
 end
 
-
 if type -q opam
   eval (opam config env)
 end
 
-if [ -d ~/.nodenv/bin ]
-  set -Ux fish_user_paths ~/.nodenv/bin $fish_user_paths
-end
-if type -q nodenv
-  status --is-interactive; and source (nodenv init -|psub)
-end
