@@ -61,6 +61,7 @@ call vundle#end()
 filetype plugin indent on
 syntax enable
 
+" nerdtree
 map <C-b> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowClean = 1
