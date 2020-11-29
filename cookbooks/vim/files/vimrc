@@ -57,6 +57,13 @@ Plugin 'preservim/nerdtree'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'prabirshrestha/async.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'prabirshrestha/asyncomplete.vim'
+Plugin 'prabirshrestha/asyncomplete-lsp.vim'
+if filereadable('~/.vim/plugin/custom-plugin.vim')
+  source '~/.vim/plugin/custom-plugin.vim'
+endif
 call vundle#end()
 filetype plugin indent on
 syntax enable
