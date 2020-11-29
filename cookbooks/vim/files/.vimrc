@@ -1,5 +1,7 @@
 set nocompatible
+filetype off
 set fileencoding=utf-8
+set encoding=utf-8
 
 " status line
 set showcmd
@@ -33,7 +35,6 @@ set confirm
 set autoread
 set noswapfile
 
-
 " bell
 set visualbell t_vb=
 set noerrorbells
@@ -43,45 +44,20 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
-" setup dein
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-
-  call dein#add('~/.cache/dein')
-  call dein#add('luochen1990/rainbow')
-  call dein#add('scrooloose/nerdtree')
-  call dein#add('rust-lang/rust.vim')
-  call dein#add('kchmck/vim-coffee-script')
-  call dein#add('Xuyuanp/nerdtree-git-plugin')
-  call dein#add('posva/vim-vue')
-  call dein#add('digitaltoad/vim-pug')
-  call dein#add('wavded/vim-stylus')
-  call dein#add('scrooloose/nerdcommenter')
-  call dein#add('vim-python/python-syntax')
-  call dein#add('dag/vim-fish')
-  call dein#add('editorconfig/editorconfig-vim')
-  call dein#add('ConradIrwin/vim-bracketed-paste')
-  call dein#add('lifepillar/vim-solarized8')
-  call dein#add('altercation/vim-colors-solarized')
-
-  call dein#end()
-  call dein#save_state()
-  if dein#check_install()
-    call dein#install()
-  endif
-endif
-
+" Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'luochen1990/rainbow'
+Plugin 'rust-lang/rust.vim'
+Plugin 'preservim/nerdtree'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
+call vundle#end()
 filetype plugin indent on
 syntax enable
 
 map <C-b> :NERDTreeToggle<CR>
-map <C-g> :NERDTreeFind<CR>
-map <C-j> :resize +5<CR>
-map <C-k> :resize -5<CR>
-map <C-h> :vertical resize -5<CR>
-map <C-l> :vertical resize +5<CR>
-map <C-u> :undo<CR>
 imap <C-c> <esc>
 noremap! <C-c> <esc>
 
@@ -93,20 +69,14 @@ let mapleader=","
 " for python-syntax
 let g:python_highlight_all = 1
 
-" for reStructuredText
-autocmd BufNewFile,BufRead *.rst highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-autocmd BufNewFile,BufRead *.rst match OverLength /\%71v.\+/
-
 " clipboard
 set clipboard+=unnamedplus
 
 " mouse
 set mouse=a
 
-"colorscheme slate
-
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"set termguicolors
+"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
-colorscheme solarized8
+colorscheme solarized
