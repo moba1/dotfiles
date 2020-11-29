@@ -45,7 +45,7 @@ function main() {
       ./mitamae local roles/darwin.rb
       ;;
     "Linux")
-      env username="$USER" gui="$gui" sudo -E ./mitamae local roles/linux.rb
+      env groups="$(groups | sed 's/ /\n/g' | head -1)" username="$USER" gui="$gui" sudo -E ./mitamae local roles/linux.rb
       ;;
   esac
 
