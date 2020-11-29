@@ -61,9 +61,7 @@ Plugin 'prabirshrestha/async.vim'
 Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-if filereadable('~/.vim/plugin/custom-plugin.vim')
-  source '~/.vim/plugin/custom-plugin.vim'
-endif
+Plugin 'mattn/vim-lsp-settings'
 call vundle#end()
 filetype plugin indent on
 syntax enable
