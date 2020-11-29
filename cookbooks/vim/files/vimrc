@@ -77,5 +77,10 @@ set clipboard=unnamedplus
 set mouse=a
 
 " color
-set background=dark
-colorscheme solarized
+try
+  colorscheme solarized
+  set background=dark
+catch
+  echohl WarningMsg
+  echo 'Warning: solarized plugin not installed'
+endtry
