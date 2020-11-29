@@ -1,4 +1,13 @@
-package "vim"
+case node[:plaform]
+when "arch"
+  # Arch Linuxでは `pacman -S vim` でインストールできる vim は
+  # `-clipboard` となり、 clipboard 機能が無効化されている。
+  # gvim は `+clipboard` となっていて、 clipboard 機能が
+  # 有効化されているので、 gvim パッケージの方をインストールする
+  package "gvim"
+else
+  package "vim"
+end
 package "neovim"
 
 vimrc_path = File.join(File.expand_path(File.dirname(__FILE__)), "files", ".vimrc")

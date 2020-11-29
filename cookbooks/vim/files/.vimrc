@@ -66,7 +66,7 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 let g:NERDTreeGitStatusShowClean = 1
 
 " clipboard
-set clipboard+=unnamedplus
+set clipboard=unnamedplus
 
 " mouse
 set mouse=a
