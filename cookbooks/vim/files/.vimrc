@@ -44,6 +44,10 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+" general key map
+imap <C-c> <esc>
+noremap! <C-c> <esc>
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -58,16 +62,8 @@ filetype plugin indent on
 syntax enable
 
 map <C-b> :NERDTreeToggle<CR>
-imap <C-c> <esc>
-noremap! <C-c> <esc>
-
-" for NERD commenter
-let g:NERDSpaceDelims=1
-let g:NERDDefaultAlign='left'
-let mapleader=","
-
-" for python-syntax
-let g:python_highlight_all = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusShowClean = 1
 
 " clipboard
 set clipboard+=unnamedplus
@@ -75,8 +71,6 @@ set clipboard+=unnamedplus
 " mouse
 set mouse=a
 
-"set termguicolors
-"let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" color
 set background=dark
 colorscheme solarized
