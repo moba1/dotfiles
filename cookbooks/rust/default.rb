@@ -6,7 +6,7 @@ execute "rustup setup" do
 end
 
 cargo_bin = File.join(node[:home], ".cargo", "bin")
-for pack in ["bat", "hexyl", "viu", "procs"]
+for pack in ["viu", "procs"]
   execute "install #{pack}" do
     command "#{File.join(cargo_bin, "cargo")} install --force #{pack}"
     user node[:username]
