@@ -90,6 +90,7 @@ noremap <C-l><C-p>d :LspPreviousDiagnostic<CR>
 noremap <C-l><C-p>e :LspPreviousError<CR>
 noremap <C-l><C-p>r :LspPrevioustReference<CR>
 noremap <C-l><C-p>w :LspPreviousWarning<CR>
+let g:lsp_log_file = ''
 
 " clipboard
 set clipboard=unnamedplus
