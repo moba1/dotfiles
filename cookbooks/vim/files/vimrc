@@ -49,7 +49,6 @@ set shiftwidth=2
 " general key map
 imap <C-c> <esc>
 noremap! <C-c> <esc>
-noremap <C-r> :redraw!<CR>
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
