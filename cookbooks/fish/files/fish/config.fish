@@ -49,3 +49,6 @@ if type -q opam
   eval (opam config env)
 end
 
+function preexec --on-event fish_preexec
+  printf "\e[1mexecute time: \e[33m%s\e[0m\n" (date '+%F (%a) %T')
+end

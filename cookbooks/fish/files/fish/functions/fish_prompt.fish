@@ -1,7 +1,7 @@
 function fish_prompt --description "left prompt"
     set -l exit_code $status
 
-    printf "[ \e[1;33m%s\e[0m \e[36m%s\e[0m@\e[1;32m%s\e[0m%s ]\n" (date "+%Y/%m/%d-%H:%M:%S") (hostname) (prompt_pwd) (__fish_git_prompt)
+    printf "[ \e[36m%s\e[0m@\e[1;32m%s\e[0m%s ]\n" (hostname) (prompt_pwd) (__fish_git_prompt)
     if [ $exit_code -eq 0 ]
       printf "\e[36m>< <(('>\e[0m .oO "
     else
