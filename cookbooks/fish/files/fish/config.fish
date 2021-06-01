@@ -39,8 +39,6 @@ set fish_color_comment green --bold
 set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
 
-alias cat bat
-
 if test -n "$SSH_CONNECTION"
   set -x TERM xterm-256color
 end
