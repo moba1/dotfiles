@@ -1,14 +1,16 @@
-case node[:plaform]
+case node[:platform]
 when "arch"
   # Arch Linuxでは `pacman -S vim` でインストールできる vim は
   # `-clipboard` となり、 clipboard 機能が無効化されている。
   # gvim は `+clipboard` となっていて、 clipboard 機能が
   # 有効化されているので、 gvim パッケージの方をインストールする
   package "gvim"
+when "darwin"
+  package "macvim"
 else
   package "vim"
 end
-package "neovim"
+#package "neovim"
 
 files = File.join(File.dirname(__FILE__), "files")
 
@@ -34,6 +36,6 @@ directory vundle_dir do
   group node[:groupid]
 end
 git File.join(vundle_dir, "Vundle.vim") do
-  repository "https://github.com/VundleVim/Vundle.vim.git"
+  repository "git@github.com:VundleVim/Vundle.vim.git"
   user node[:username]
 end
