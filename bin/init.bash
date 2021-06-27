@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mitamae_version="1.6.2"
+mitamae_version="1.12.7"
 case "$(uname)" in
     "Linux")
         mitamae_platform="mitamae-x86_64-linux"
