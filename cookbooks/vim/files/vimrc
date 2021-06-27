@@ -65,9 +65,15 @@ Plugin 'prabirshrestha/vim-lsp'
 Plugin 'prabirshrestha/asyncomplete.vim'
 Plugin 'prabirshrestha/asyncomplete-lsp.vim'
 Plugin 'mattn/vim-lsp-settings'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 filetype plugin indent on
 syntax enable
+
+" vim-markdown
+set nofoldenable
 
 " nerdtree
 noremap <C-n> :NERDTreeToggle<CR>
@@ -92,7 +98,7 @@ noremap <C-l><C-p>w :LspPreviousWarning<CR>
 let g:lsp_log_file = ''
 
 " clipboard
-set clipboard=unnamedplus
+set clipboard=unnamedplus,unnamed
 
 " mouse
 set mouse=a
