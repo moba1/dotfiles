@@ -1,6 +1,6 @@
 set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
-set -gx PATH ~/.local/bin ~/.cargo/bin $PATH
+set -gx PATH ~/.local/bin $PATH
 
 # for git
 set __fish_git_prompt_showdirtystate 'yes'
