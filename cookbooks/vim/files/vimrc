@@ -57,7 +57,6 @@ Plugin 'Vundle/Vundle.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'preservim/nerdtree'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'prabirshrestha/async.vim'
@@ -105,7 +104,9 @@ set mouse=a
 
 " color
 try
-  colorscheme solarized
-  set background=dark
+  colorscheme desert
+  set termguicolors
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
 catch
 endtry
