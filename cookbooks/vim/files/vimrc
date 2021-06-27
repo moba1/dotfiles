@@ -97,6 +97,12 @@ noremap <C-l><C-p>r :LspPrevioustReference<CR>
 noremap <C-l><C-p>w :LspPreviousWarning<CR>
 let g:lsp_log_file = ''
 
+let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
+let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
+
 " clipboard
 set clipboard=unnamedplus,unnamed
 
