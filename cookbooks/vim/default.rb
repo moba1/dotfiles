@@ -10,7 +10,7 @@ when "darwin"
 else
   package "vim"
 end
-#package "neovim"
+package "neovim"
 
 files = File.join(File.dirname(__FILE__), "files")
 
