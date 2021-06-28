@@ -53,7 +53,7 @@ noremap! <C-c> <esc>
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'Vundle/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'luochen1990/rainbow'
 Plugin 'rust-lang/rust.vim'
 Plugin 'preservim/nerdtree'

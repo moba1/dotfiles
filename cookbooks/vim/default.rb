@@ -39,3 +39,7 @@ git File.join(vundle_dir, "Vundle.vim") do
   repository "git@github.com:VundleVim/Vundle.vim.git"
   user node[:username]
 end
+execute "install plugin" do
+  user node[:username]
+  command "vim +PluginInstall +qall"
+end
