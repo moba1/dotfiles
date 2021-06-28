@@ -1,7 +1,5 @@
 set -gx LSCOLORS gxafcxacFxdeagDxdxCxdB
 
-set -gx PATH ~/.local/bin $PATH
-
 # for git
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
@@ -39,18 +37,7 @@ set fish_color_comment green --bold
 set fish_color_search_match --background=magenta
 set fish_color_escape yellow --bold
 
-if test -n "$SSH_CONNECTION"
-  set -x TERM xterm-256color
-end
-
-if type -q opam
-  eval (opam config env)
-end
-
 function preexec --on-event fish_preexec
   printf "\e[1mexecute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
 end
 
-set -gx WASMTIME_HOME "$HOME/.wasmtime"
-
-string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
