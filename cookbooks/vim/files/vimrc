@@ -62,7 +62,6 @@ try
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'mattn/vim-lsp-settings'
-  Plug 'mattn/vim-lsp-icons'
   Plug 'editorconfig/editorconfig-vim'
   Plug 'plasticboy/vim-markdown', { 'for': 'md' }
   Plug 'arcticicestudio/nord-vim'
@@ -91,6 +90,7 @@ noremap <C-l>D :LspDeclaration<CR>
 noremap <C-l>p :LspPeekDefinition<CR>
 noremap <C-l>P :LspPeekDeclaration<CR>
 noremap <C-l>r :LspReferences<CR>
+noremap <C-l><C-d> :LspDocumentDiagnostics<CR>
 noremap <C-l><C-n>d :LspNextDiagnostic<CR>
 noremap <C-l><C-n>e :LspNextError<CR>
 noremap <C-l><C-n>r :LspNextReference<CR>
@@ -99,7 +99,6 @@ noremap <C-l><C-p>d :LspPreviousDiagnostic<CR>
 noremap <C-l><C-p>e :LspPreviousError<CR>
 noremap <C-l><C-p>r :LspPrevioustReference<CR>
 noremap <C-l><C-p>w :LspPreviousWarning<CR>
-let g:lsp_log_file = ''
 
 let g:WebDevIconsNerdTreeBeforeGlyphPadding = ""
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
