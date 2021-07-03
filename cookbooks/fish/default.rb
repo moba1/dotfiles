@@ -43,8 +43,3 @@ if not File.exist?(install_path)
     end
 end
 
-link File.join(node[:home], ".bash_profile") do
-    to File.join(current_dir, "files/.bash_profile")
-    force true
-end
-
