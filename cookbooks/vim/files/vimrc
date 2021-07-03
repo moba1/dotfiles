@@ -63,11 +63,13 @@ try
   Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'mattn/vim-lsp-settings'
+  Plug 'mattn/vim-lsp-icons'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'godlygeek/tabular'
-  Plug 'plasticboy/vim-markdown'
+  Plug 'plasticboy/vim-markdown', { 'for': 'md' }
   Plug 'arcticicestudio/nord-vim'
   Plug 'dag/vim-fish', { 'for': 'fish' }
+  Plug 'hrsh7th/vim-vsnip'
+  Plug 'hrsh7th/vim-vsnip-integ'
   call plug#end()
 catch
   echoerr "no plugin loaded"
@@ -120,3 +122,4 @@ try
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
 catch
 endtry
+
