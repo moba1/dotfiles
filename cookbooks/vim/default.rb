@@ -10,7 +10,7 @@ when "darwin"
 else
   package "vim"
 end
-package "neovim"
+#package "neovim"
 
 files = File.join(File.dirname(__FILE__), "files")
 
@@ -21,6 +21,16 @@ for file in Dir.glob(File.join(files, "*")) do
   end
 end
 
+vim_plug_dirs = [
+  File.join(node[:home], ".vim", "autoload", "plug.vim"),
+  File.join(node[:home], ".local", "share", "nvim", "site", "autoload", "plug.vim")
+]
+for vim_plug_dir in vim_plug_dirs do
+  execute "install vim-plug" do
+    command "sudo -u '#{node[:username]}' curl -fLo '#{vim_plug_dir}' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  end
+end
+
 nvim_config_dir = File.join(node[:home], ".config", "nvim")
 directory nvim_config_dir do
   user node[:username]
@@ -28,18 +38,4 @@ end
 link File.join(nvim_config_dir, "init.vim") do
   to File.join(files, "vimrc")
   force true
-end
-
-vundle_dir = File.join(node[:home], ".vim", "bundle")
-directory vundle_dir do
-  owner node[:username]
-  group node[:groupid]
-end
-git File.join(vundle_dir, "Vundle.vim") do
-  repository "git@github.com:VundleVim/Vundle.vim.git"
-  user node[:username]
-end
-execute "install plugin" do
-  user node[:username]
-  command "vim +PluginInstall +qall"
 end

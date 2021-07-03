@@ -51,24 +51,26 @@ imap <C-c> <esc>
 noremap! <C-c> <esc>
 
 " Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'luochen1990/rainbow'
-Plugin 'rust-lang/rust.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'arcticicestudio/nord-vim'
-call vundle#end()
+try
+  call plug#begin('~/.vim/plugged')
+  Plug 'luochen1990/rainbow'
+  Plug 'rust-lang/rust.vim', { 'for': 'rs' }
+  Plug 'preservim/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'prabirshrestha/asyncomplete.vim'
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'editorconfig/editorconfig-vim'
+  Plug 'godlygeek/tabular'
+  Plug 'plasticboy/vim-markdown'
+  Plug 'arcticicestudio/nord-vim'
+  call plug#end()
+catch
+  echoerr "no plugin loaded"
+endtry
 filetype plugin indent on
 syntax enable
 
