@@ -12,6 +12,7 @@ import (
 
 func main() {
 	cs := commonset.Commands()
+		cs = append(darwinset.Commands(), cs...)
 	switch dotsetup.Os {
 	case "windows":
 		log.Fatalln("windows not supported")
@@ -26,7 +27,7 @@ func main() {
 
 	if *dryRun {
 		for _, command := range s.Flat() {
-			fmt.Println(command)
+			fmt.Println(fmt.Sprintf("%#v", command))
 		}
 		return
 	}
