@@ -1,5 +1,5 @@
 .DS_Store
 
-cookbooks/fish/files/fish/functions/*
-!cookbooks/fish/files/fish/functions/fish_*
+assets/fish/functions/*
+!assets/fish/functions/fish_*
 
