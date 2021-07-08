@@ -39,7 +39,7 @@ func main() {
 	}
 
 	var sudoPass string
-	if !*yes {
+	if !*yes && dotsetup.Os != "darwin" {
 		fmt.Print("input user password (for sudo) --> ")
 		if err := bufio.NewWriter(os.Stdout).Flush(); err != nil {
 			log.Fatalln(err)
