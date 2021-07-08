@@ -16,6 +16,8 @@ func vim() []dotsetup.Command {
 	switch dotsetup.Os {
 	case "Arch Linux":
 		vimPackName = "gvim"
+	case "darwin":
+		vimPackName = "macvim"
 	default:
 		vimPackName = "vim"
 	}
