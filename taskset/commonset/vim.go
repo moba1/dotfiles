@@ -5,11 +5,11 @@ import (
 	"path"
 
 	"github.com/moba1/dotfiles/env"
-	"github.com/moba1/dotsetup"
+	"github.com/moba1/dotsetup/v2"
 )
 
-func vim() []dotsetup.Command {
-	cs := []dotsetup.Command{}
+func vim() []dotsetup.Task {
+	ts := []dotsetup.Task{}
 
 	// install vim
 	var vimPackName string
@@ -21,11 +21,11 @@ func vim() []dotsetup.Command {
 	default:
 		vimPackName = "vim"
 	}
-	cs = append(cs, &dotsetup.Package{
+	ts = append(ts, &dotsetup.Package{
 		Name: vimPackName,
 	})
 	// install neovim
-	cs = append(cs, &dotsetup.Package{
+	ts = append(ts, &dotsetup.Package{
 		Name: "neovim",
 	})
 
@@ -36,17 +36,17 @@ func vim() []dotsetup.Command {
 		"gvim": "gvimrc",
 	}
 	for _, rc := range rcs {
-		cs = append(cs, &dotsetup.Link{
+		ts = append(ts, &dotsetup.Link{
 			Source:      path.Join(assetPath, rc),
 			Destination: path.Join(env.User.HomeDir, fmt.Sprintf(".%s", rc)),
 			Force:       true,
 		})
 	}
 	nvimConfigPath := path.Join(env.User.HomeDir, ".config", "nvim")
-	cs = append(cs, &dotsetup.Directory{
+	ts = append(ts, &dotsetup.Directory{
 		Path: nvimConfigPath,
 	})
-	cs = append(cs, &dotsetup.Link{
+	ts = append(ts, &dotsetup.Link{
 		Source:      path.Join(assetPath, rcs["vim"]),
 		Destination: path.Join(nvimConfigPath, "init.vim"),
 		Force:       true,
@@ -58,16 +58,21 @@ func vim() []dotsetup.Command {
 		path.Join(env.User.HomeDir, ".local", "share", "nvim", "site", "autoload"),
 	}
 	for _, autoloadPath := range autoloadPaths {
-		cs = append(cs, &dotsetup.Curl{
+		ts = append(ts, &dotsetup.Curl{
 			Args: []string{
 				"-fLo", path.Join(autoloadPath, "plug.vim"),
 				"--create-dirs",
 				"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"},
 		})
 	}
-	cs = append(cs, &dotsetup.Execute{
-		RawCommand: []string{"vim", "+PlugInstall", "+qall"},
+	ts = append(ts, &dotsetup.Execute{
+		RawCommands: []dotsetup.ExecuteCommand{
+			{
+				RawCommand: dotsetup.RawCommand{"vim", "+PlugInstall", "+qall"},
+				DoRool: false,
+			},
+		},
 	})
 
-	return cs
+	return ts
 }

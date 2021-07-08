@@ -12,3 +12,5 @@ github.com/moba1/dotsetup v1.1.1 h1:ythNIhWT7DcumGivLZs0vbvDxrDAVRjp0hNDUhQ1Nic=
 github.com/moba1/dotsetup v1.1.1/go.mod h1:ZlMwozSoNkJ9BYL1JJKE+i8kK7bLJTWx4FR5bLuPhRY=
 github.com/moba1/dotsetup v1.2.0 h1:MyHHb2ZEEteGmuNuiZxtDEfmTT3jHtv14o2uuA+sO6w=
 github.com/moba1/dotsetup v1.2.0/go.mod h1:ZlMwozSoNkJ9BYL1JJKE+i8kK7bLJTWx4FR5bLuPhRY=
+github.com/moba1/dotsetup/v2 v2.0.1 h1:cl/7lcsw7LzWmY1t4kEDdYAgN1RANcAC0TDTyroTjGA=
+github.com/moba1/dotsetup/v2 v2.0.1/go.mod h1:z3nSpbM5y4BkuZAVCXW9msX/rL/4aLAtaTroKM051rU=

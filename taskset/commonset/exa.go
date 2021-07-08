@@ -1,9 +1,9 @@
 package commonset
 
-import "github.com/moba1/dotsetup"
+import "github.com/moba1/dotsetup/v2"
 
-func exa() []dotsetup.Command {
-	return []dotsetup.Command{
+func exa() []dotsetup.Task {
+	return []dotsetup.Task{
 		// install exa
 		&dotsetup.Package{
 			Name: "exa",

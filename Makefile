@@ -6,7 +6,7 @@ all:
 	go run main.go
 
 dry-run: build-image
-	$(docker_run) -l -c "go run main.go -debug"
+	$(docker_run) -l -c "go run main.go -debug -y"
 
 start-image: build-image
 	$(docker_run)

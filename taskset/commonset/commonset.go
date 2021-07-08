@@ -1,9 +1,9 @@
 package commonset
 
-import "github.com/moba1/dotsetup"
+import "github.com/moba1/dotsetup/v2"
 
-func Commands() []dotsetup.Command {
-	tfs := []func() []dotsetup.Command{
+func Tasks() []dotsetup.Task {
+	tfs := []func() []dotsetup.Task{
 		fish,
 		tmux,
 		vim,
@@ -11,7 +11,7 @@ func Commands() []dotsetup.Command {
 		exa,
 		fd,
 	}
-	ts := []dotsetup.Command{}
+	ts := []dotsetup.Task{}
 	for _, tf := range tfs {
 		ts = append(ts, tf()...)
 	}

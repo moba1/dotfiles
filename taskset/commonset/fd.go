@@ -1,8 +1,8 @@
 package commonset
 
-import "github.com/moba1/dotsetup"
+import "github.com/moba1/dotsetup/v2"
 
-func fd() []dotsetup.Command {
+func fd() []dotsetup.Task {
 	var packName string
 	switch dotsetup.Os {
 	case "darwin":
@@ -11,7 +11,7 @@ func fd() []dotsetup.Command {
 		packName = "fd-find"
 	}
 
-	return []dotsetup.Command{
+	return []dotsetup.Task{
 		// install fd
 		&dotsetup.Package{
 			Name: packName,
