@@ -68,7 +68,11 @@ func vim() []dotsetup.Task {
 	ts = append(ts, &dotsetup.Execute{
 		RawCommands: []dotsetup.ExecuteCommand{
 			{
-				RawCommand: dotsetup.RawCommand{"vim", "+PlugInstall", "+qall"},
+				RawCommand: dotsetup.RawCommand{
+					"vim", "-s",
+					path.Join(env.User.HomeDir, ".vimrc"),
+					"+PlugInstall", "+qall",
+				},
 				DoRool: false,
 			},
 		},
