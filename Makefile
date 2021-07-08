@@ -5,13 +5,10 @@ docker_run := docker run -it --rm -v "$(shell pwd):/home/moba/.setup" $(docker_i
 all:
 	go run main.go
 
-run-image:
-	$(docker_run) -l -c "go run main.go"
-
-debug-image: build-image
+dry-run: build-image
 	$(docker_run) -l -c "go run main.go -debug"
 
-dry-run-image: build-image
+start-image: build-image
 	$(docker_run)
 
 build-image:
