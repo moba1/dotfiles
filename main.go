@@ -4,20 +4,23 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os/exec"
 
 	"github.com/moba1/dotfiles/taskset/commonset"
-	"github.com/moba1/dotfiles/taskset/darwinset"
 	"github.com/moba1/dotsetup"
 )
 
 func main() {
 	cs := commonset.Commands()
-		cs = append(darwinset.Commands(), cs...)
 	switch dotsetup.Os {
 	case "windows":
 		log.Fatalln("windows not supported")
 	case "darwin":
-		cs = append(darwinset.Commands(), cs...)
+		cmd := exec.Command("command", "-v", "brew")
+		if err := cmd.Run(); err == nil {
+			break
+		}
+		log.Fatalln("Homebrew not installed. Could you install Homebrew?")
 	}
 	s := dotsetup.NewScript(cs)
 
