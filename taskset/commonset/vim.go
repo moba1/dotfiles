@@ -73,7 +73,7 @@ func vim() []dotsetup.Task {
 					path.Join(env.User.HomeDir, ".vimrc"),
 					"+PlugInstall", "+qall",
 				},
-				DoRool: false,
+				DoRoot: false,
 			},
 		},
 	})
