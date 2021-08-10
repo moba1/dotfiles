@@ -4,7 +4,7 @@ import (
 	"path"
 
 	"github.com/moba1/dotfiles/env"
-	"github.com/moba1/dotsetup/v2"
+	"github.com/moba1/dotsetup/v3"
 )
 
 func fish() []dotsetup.Task {

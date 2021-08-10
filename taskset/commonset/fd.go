@@ -1,6 +1,6 @@
 package commonset
 
-import "github.com/moba1/dotsetup/v2"
+import "github.com/moba1/dotsetup/v3"
 
 func fd() []dotsetup.Task {
 	var packName string

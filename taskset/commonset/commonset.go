@@ -1,6 +1,6 @@
 package commonset
 
-import "github.com/moba1/dotsetup/v2"
+import "github.com/moba1/dotsetup/v3"
 
 func Tasks() []dotsetup.Task {
 	tfs := []func() []dotsetup.Task{

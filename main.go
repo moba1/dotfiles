@@ -9,7 +9,7 @@ import (
 	"os/exec"
 
 	"github.com/moba1/dotfiles/taskset/commonset"
-	"github.com/moba1/dotsetup/v2"
+	"github.com/moba1/dotsetup/v3"
 )
 
 func main() {
