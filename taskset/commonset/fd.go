@@ -5,7 +5,7 @@ import "github.com/moba1/dotsetup/v3"
 func fd() []dotsetup.Task {
 	var packName string
 	switch dotsetup.Os {
-	case "darwin":
+	case "darwin", "opensuse-leap", "opensuse-tumbleweed":
 		packName = "fd"
 	default:
 		packName = "fd-find"
