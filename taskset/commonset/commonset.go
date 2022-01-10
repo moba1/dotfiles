@@ -10,6 +10,7 @@ func Tasks() []dotsetup.Task {
 		bat,
 		exa,
 		fd,
+		inetutils,
 	}
 	ts := []dotsetup.Task{}
 	for _, tf := range tfs {
