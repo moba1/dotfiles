@@ -125,3 +125,7 @@ catch
   echoerr v:exception
 endtry
 
+try
+  source ~/.vim/custom.vim
+catch /E484:/
+endtry
