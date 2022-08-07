@@ -54,7 +54,6 @@ noremap! <C-c> <esc>
 try
   call plug#begin('~/.vim/plugged')
   Plug 'luochen1990/rainbow'
-  Plug 'rust-lang/rust.vim', { 'for': 'rs' }
   Plug 'preservim/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'ryanoasis/vim-devicons'
@@ -64,11 +63,13 @@ try
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
   Plug 'mattn/vim-lsp-settings'
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'plasticboy/vim-markdown', { 'for': 'md' }
   Plug 'arcticicestudio/nord-vim'
-  Plug 'dag/vim-fish', { 'for': 'fish' }
   Plug 'hrsh7th/vim-vsnip'
   Plug 'hrsh7th/vim-vsnip-integ'
+  try
+    source ~/.vim/custom-plugin.vim
+  catch
+  endtry
   call plug#end()
 catch
   echoerr "no plugin loaded"
@@ -77,6 +78,11 @@ catch
 endtry
 filetype plugin indent on
 syntax enable
+
+try
+  source ~/.vim/custom.vim
+catch
+endtry
 
 " vim-markdown
 set nofoldenable
