@@ -1,8 +1,2 @@
-github.com/moba1/dotsetup/v3 v3.0.0 h1:NfBYJpVFEGKUIey2TfKAECrn5e7woZblPVl6RQpDQR8=
-github.com/moba1/dotsetup/v3 v3.0.0/go.mod h1:Wz7cxw+Bq/PihCrh6oYLv4JHuII3GUdkxkHlmD1+v00=
-github.com/moba1/dotsetup/v3 v3.0.1 h1:l4ruiWnon8tuW5H/qsrPKMbVJrp8VqIpK5dMGqA26Z0=
-github.com/moba1/dotsetup/v3 v3.0.1/go.mod h1:Wz7cxw+Bq/PihCrh6oYLv4JHuII3GUdkxkHlmD1+v00=
-github.com/moba1/dotsetup/v3 v3.0.2 h1:MCwTeVRkgtlfZBwODiUn+07U3e3EoTutLwME2RFLx2w=
-github.com/moba1/dotsetup/v3 v3.0.2/go.mod h1:pQojRs8KBqRblltCzzEOP+WIPiHAS/cIGo1ewi6FVHs=
-github.com/moba1/dotsetup/v3 v3.1.0 h1:Piph8svIIHJ7oPPxbJHaWrerbjCG5LpPw7whQ05iCEk=
-github.com/moba1/dotsetup/v3 v3.1.0/go.mod h1:pQojRs8KBqRblltCzzEOP+WIPiHAS/cIGo1ewi6FVHs=
+github.com/moba1/dotsetup/v3 v3.2.0 h1:0sNCH9zqTzq7rAMvm4wRfn6Wuq/jwdv9j0d+u39iupU=
+github.com/moba1/dotsetup/v3 v3.2.0/go.mod h1:pQojRs8KBqRblltCzzEOP+WIPiHAS/cIGo1ewi6FVHs=
