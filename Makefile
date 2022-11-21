@@ -1,4 +1,4 @@
-NIX_PATH ?= ~/.nix-defexpr/channels
+NIX_PATH ?= $(HOME)/.nix-defexpr/channels
 
 .PHONY: all
 all:
@@ -7,4 +7,4 @@ all:
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 	nix-channel --update
-	nix-shell '<home-manager>' -A install
+	env "NIX_PATH=$(NIX_PATH)" nix-shell '<home-manager>' -A install
