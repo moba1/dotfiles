@@ -5,7 +5,9 @@ charset = utf-8
 end_of_line = LF
 insert_file_newline = true
 trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
 
-[{*.go,Makefile}]
+[Makefile]
 indent_style = tab
 indent_size = 4
