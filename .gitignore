@@ -1,6 +1,1 @@
-.DS_Store
-
-assets/fish/functions/*
-!assets/fish/functions/fish_*
-!assets/fish/functions/cd.fish
-
+/result
