@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  additionalPackages =
-  if builtins.pathExists ./additional-packages.nix then
-    (import ./additional-packages.nix { pkgs = pkgs; }).pkgs
-  else
-    [];
   vim-lsp-settings = pkgs.vimUtils.buildVimPlugin {
     name = "vim-lsp-settings";
     src = pkgs.fetchFromGitHub {
@@ -35,7 +30,7 @@ in
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
-  home.packages = additionalPackages ++ (with pkgs; [
+  home.packages = with pkgs; [
     fd
     lsd
     ripgrep
@@ -44,7 +39,7 @@ in
     sd
     tokei
     broot
-  ]);
+  ];
 
   programs.bat = {
     enable = true;
