@@ -6,6 +6,16 @@ let
     (import ./additional-packages.nix { pkgs = pkgs; }).pkgs
   else
     [];
+  vim-lsp-settings = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-lsp-settings";
+    src = pkgs.fetchFromGitHub {
+      owner = "mattn";
+      repo = "vim-lsp-settings";
+      rev = "bde172e55b1f4d169b4a1219dca23761ab6e80d9";
+      sha256 = "0n674fa1dhvm3sq7pqri7cs3ggbf2g1xpych91gd7k9xavv1bds8";
+    };
+    buildPhase = ":"; # ignore shellcheck check
+  };
   vimPlugins = with pkgs.vimPlugins; [
     nord-vim
     rainbow
@@ -16,6 +26,7 @@ let
     asyncomplete-vim
     asyncomplete-lsp-vim
     editorconfig-vim
+    vim-lsp-settings
   ];
 in
 {
