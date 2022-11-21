@@ -8,6 +8,9 @@ let
     [];
   vimPlugins = with pkgs.vimPlugins; [
     nord-vim
+    rainbow
+    vim-airline
+    vim-airline-themes
   ];
 in
 {
@@ -92,14 +95,11 @@ in
       scriptencoding=utf-8
 
       set showcmd
-      set laststatus=2
-      set cmdheight=2
 
       set showmatch
       set list
       set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
       set ambiwidth=double
-      set statusline=%F%m%r%h%w%=\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%lL,%vC][%p%%]\ [LEN=%L]
 
       set backspace=indent,eol,start
       set whichwrap=b,s,h,l,<,>,[,]
@@ -107,7 +107,7 @@ in
       set incsearch
       set wrapscan
       set hlsearch
-      
+
       set confirm
       set autoread
       set noswapfile
@@ -119,9 +119,14 @@ in
 
       colorscheme nord
       set termguicolors
-      let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " 文字色
-      let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " 背景色
       filetype plugin indent on
+
+      " vim-airline
+      let g:airline#extension#tabline#enabled = 1
+      let g:airline_theme = 'nord'
+
+      " rainbow
+      let g:rainbow_actve = 1
     '';
   };
 
