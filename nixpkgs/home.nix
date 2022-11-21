@@ -11,6 +11,11 @@ let
     rainbow
     vim-airline
     vim-airline-themes
+    vim-lsp
+    async-vim
+    asyncomplete-vim
+    asyncomplete-lsp-vim
+    editorconfig-vim
   ];
 in
 {
