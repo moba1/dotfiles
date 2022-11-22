@@ -125,17 +125,24 @@ in
       set visualbell t_vb=
       set noerrorbells
 
-      if !empty($WSL_DISTRO_NAME)
-        augroup WSLYank
-          autocmd!
-          autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif
-        augroup END
-      elseif has('mac')
-        augroup MacYank
-          autocmd!
-          autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/usr/bin/pbcopy', @0) | endif
-        augroup END
-      endif
+      function! s:clip_command()
+        if has('win32') || !empty($WSL_DISTRO_NAME)
+          return 'clip.exe'
+        elseif has('mac')
+          return 'pbcopy'
+        elseif has('linux')
+          if executable('xsel')
+            return 'xsel -bi'
+          elif executable('xclip')
+            return 'xclip'
+          endif
+        endif
+        throw 'clipboard program not found'
+      endfunction
+      augroup Clipboard
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip_command(), @0) | endif
+      augroup END
 
       colorscheme nord
       set termguicolors
