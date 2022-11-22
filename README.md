@@ -15,3 +15,4 @@
     ```
 
 3. run `make`
+4. run `home-manager switch`
