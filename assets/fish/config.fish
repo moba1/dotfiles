@@ -2,6 +2,10 @@ set -l nix_profile ~/.nix-profile/etc/profile.d/nix.fish
 if [ -e "$nix_profile" ]
   source "$nix_profile"
   set -x NIX_PATH ~/.nix-defexpr/channels
+  if not set -q __EXEC_NIX_FISH__
+    set -x __EXEC_NIX_FISH__ 1
+    exec fish
+  end
 end
 
 if type starship >/dev/null 2>&1

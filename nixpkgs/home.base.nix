@@ -39,6 +39,7 @@ in
     sd
     tokei
     broot
+    fish
   ];
 
   programs.bat = {
