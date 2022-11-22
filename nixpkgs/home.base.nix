@@ -40,13 +40,7 @@ in
     tokei
     broot
     fish
-    gnupg
   ];
-
-  services.gpg-agent = {
-    enable = true;
-    pinentryFlavor = "tty";
-  };
 
   programs.bat = {
     enable = true;
