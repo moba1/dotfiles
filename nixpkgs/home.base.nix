@@ -57,15 +57,9 @@ in
         success_symbol = "[](bold blue)";
         error_symbol = "[](bold red)";
       };
-      package = {
-        disabled = true;
-      };
-      container = {
-        disabled = true;
-      };
-      directory = {
-        truncation_symbol = "…/";
-      };
+      package.disabled = true;
+      container.disabled = true;
+      directory.truncation_symbol = "…/";
     };
   };
 
