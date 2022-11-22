@@ -125,7 +125,17 @@ in
       set visualbell t_vb=
       set noerrorbells
 
-      set clipboard=unnamedplus,unnamed
+      if !empty($WSL_DISTRO_NAME)
+        augroup WSLYank
+          autocmd!
+          autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif
+        augroup END
+      elseif has('macunix')
+        augroup MacYank
+          autocmd!
+          autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/usr/bin/pbcopy', @0) | endif
+        augroup END
+      endif
 
       colorscheme nord
       set termguicolors
