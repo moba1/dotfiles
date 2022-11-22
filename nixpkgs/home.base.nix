@@ -130,7 +130,7 @@ in
           autocmd!
           autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/Windows/System32/clip.exe', @0) | endif
         augroup END
-      elseif has('macunix')
+      elseif has('mac')
         augroup MacYank
           autocmd!
           autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/usr/bin/pbcopy', @0) | endif
