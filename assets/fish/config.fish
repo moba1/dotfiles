@@ -14,9 +14,9 @@ end
 alias diff=delta
 alias ls=lsd
 
-set -l CUSTOM_FISH_FILE ~/.config/fish/custom.fish
-if ls "$CUSTOM_FISH_FILE" >/dev/null 2>&1
-  source "$CUSTOM_FISH_FILE"
+set -l custom_script ~/.config/fish/custom.fish
+if [ -e "$custom_script" ]
+  source "$custom_script"
 end
 
 # set color
