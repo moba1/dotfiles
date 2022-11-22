@@ -40,7 +40,13 @@ in
     tokei
     broot
     fish
+    gnupg
   ];
+
+  services.gpg-agent = {
+    enable = true;
+    pinentryFlavor = "tty";
+  };
 
   programs.bat = {
     enable = true;
@@ -75,6 +81,7 @@ in
     userEmail = "moba2@protonmail.com";
     ignores = [ ".DS_Store" ];
     extraConfig = {
+      init.defaultBranch = "main";
       core.pager = "delta";
       interactive.diffFilter = "delta --color-only";
       merge.conflictstyle = "diff3";
@@ -82,6 +89,9 @@ in
       delta.features = "decorations";
       delta.line-numbers = "true";
       delta.side-by-side = "true";
+      gpg.program = "gpg";
+      commit.gpgsign = true;
+      tag.gpgsign = true;
     };
   };
 
