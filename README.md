@@ -9,6 +9,8 @@
     ```nix
     { config, pkgs, ... }:
     {
+      home.username = "<username>";
+      home.homeDirectory = "<home directory path>";
       imports = [ ./home.base.nix ];
       # ...
     }
