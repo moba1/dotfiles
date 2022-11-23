@@ -25,8 +25,6 @@ let
   ];
 in
 {
-  home.username = "moba";
-  home.homeDirectory = "/home/moba";
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
