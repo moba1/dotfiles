@@ -2,9 +2,7 @@ set -l nix_profile ~/.nix-profile/etc/profile.d/nix.fish
 if [ -e "$nix_profile" ]
   source "$nix_profile"
   set -x NIX_PATH ~/.nix-defexpr/channels
-  if status --is-login
-    exec fish
-  end
+  status --is-login; and exec fish
 end
 
 if type starship >/dev/null 2>&1
@@ -15,9 +13,7 @@ alias diff=delta
 alias ls=lsd
 
 set -l custom_script ~/.config/fish/custom.fish
-if [ -e "$custom_script" ]
-  source "$custom_script"
-end
+[ -e "$custom_script" ]; and source "$custom_script"
 
 # set color
 set fish_color_error red --bold
