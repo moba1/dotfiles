@@ -1,6 +1,7 @@
 { lib
 , fetchFromGitHub
 , buildGoModule
+, installShellFiles
 }:
 
 buildGoModule rec {
@@ -20,5 +21,9 @@ buildGoModule rec {
     sha256 = "WY0zFt76mvdzk/s2Rzqys8n+DVw6qg7V6Y8JncOUVCM=";
   };
 
-  subPackages = [ "cmd/kubectx" "cmd/kubens" ];
+  nativeBuildInputs = [ installShellFiles ];
+
+  postInstall = ''
+    installShellCompletion completion/*
+  '';
 }
