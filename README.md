@@ -40,8 +40,18 @@ make osx
 you must add following configurations to `~/.nixpkgs/darwin-configuration.nix`:
 
 ```nix
-# $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+{ config, pkgs, ... }:
+
+{
+  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+
+  services.nix-daemon.enable = true;
+
+  # valid `<login shell name>` value: fish, bash, zsh
+  programs.<login shell name>.enable = true;
+
+  system.stateVersion = 4;
+}
 ```
 
 ## License
