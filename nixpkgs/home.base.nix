@@ -38,6 +38,10 @@ in
     tokei
     broot
     fish
+    httpie
+    dogdns
+    gping
+    zellij
   ];
 
   programs.bat = {
