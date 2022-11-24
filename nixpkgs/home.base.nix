@@ -28,8 +28,6 @@ in
   home.stateVersion = "22.05";
   programs.home-manager.enable = true;
 
-  imports = if pkgs.stdenv.isLinux [ ./home.linux.nix ] else [];
-
   home.packages = with pkgs; [
     fd
     lsd

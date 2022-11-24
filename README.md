@@ -19,6 +19,16 @@
 3. run `make`
 4. run `home-manager switch`
 
+### Linux
+
+If you use Linux, you must import `home.linux.nix` in `nixpkgs/home.nix`
+
+```nix
+# ...
+imports = [ ./home.base.nix ./home.linux.nix ];
+# ...
+```
+
 ### macOS
 
 If you use macOS, you must run following commands further:
