@@ -37,7 +37,7 @@ in
     sd
     tokei
     broot
-    fish
+    #fish
     httpie
     dogdns
     gping
@@ -159,7 +159,64 @@ in
     '';
   };
 
-  xdg.configFile."fish/config.fish".source = config.lib.file.mkOutOfStoreSymlink ../assets/fish/config.fish;
-  xdg.configFile."fish/functions/cd.fish".source = config.lib.file.mkOutOfStoreSymlink ../assets/fish/functions/cd.fish;
-  xdg.configFile."fish/functions/fish_greeting.fish".source = config.lib.file.mkOutOfStoreSymlink ../assets/fish/functions/fish_greeting.fish;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      diff = "delta";
+      ls = "lsd";
+      cat = "bat";
+    };
+    functions = {
+      cd = {
+        body = ''
+          if builtin cd $argv
+            if type lsd > /dev/null 2>&1
+              lsd
+            else
+              ls
+            end
+          end
+        '';
+      };
+      fish_greeting = {
+        body = ''
+          echo "        /\\"
+          echo "      _/./"
+          echo "   ,-'    `-:.,-'/"
+          echo "  > O )<)    _  ("
+          echo "   `-._  _.:' `-.\\"
+          echo "       `` \\;"
+        '';
+      };
+    };
+    loginShellInit = ''
+      set -l nix_profile ~/.nix-profile/etc/profile.d/nix.fish
+      if [ -e "$nix_profile" ]
+        source "$nix_profile"
+        set -x NIX_PATH ~/.nix-defexpr/channels
+        exec fish -i
+      end
+    '';
+    interactiveShellInit = ''
+      set fish_color_error red --bold
+      set fish_color_param white
+      set fish_color_command cyan --bold
+      set fish_color_autosuggestion green
+      set fish_color_operator bryellow --bold
+      set fish_color_comment green --bold
+      set fish_color_search_match --background=magenta
+      set fish_color_escape yellow --bold
+
+      set -l custom_script ~/.config/fish/custom.fish
+      [ -e "$custom_script" ]; and source "$custom_script"
+
+      type starship > /dev/null 2>&1 && starship init fish | source
+
+      set -x GPG_TTY (tty)
+
+      function preexec --on-event fish_preexec
+        printf "\e[1mexecute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
+      end
+    '';
+  };
 }
