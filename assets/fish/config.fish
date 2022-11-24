@@ -11,6 +11,7 @@ end
 
 alias diff=delta
 alias ls=lsd
+alias cat=bat
 
 set -l custom_script ~/.config/fish/custom.fish
 [ -e "$custom_script" ]; and source "$custom_script"
