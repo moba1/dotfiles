@@ -19,6 +19,21 @@
 3. run `make`
 4. run `home-manager switch`
 
+### macOS
+
+If you use macOS, you must run following commands further:
+
+```bash
+make osx
+```
+
+you must add following configurations to `~/.nixpkgs/darwin-configuration.nix`:
+
+```nix
+# $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
+```
+
 ## License
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
