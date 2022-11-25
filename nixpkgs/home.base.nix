@@ -37,11 +37,12 @@ in
     sd
     tokei
     broot
-    #fish
     httpie
     dogdns
     gping
-    zellij
+    zip
+    unzip
+    bc
   ];
 
   programs.bat = {
@@ -49,6 +50,13 @@ in
     config = {
       paging = "never";
       theme = "Nord";
+    };
+  };
+
+  programs.zellij = {
+    enable = true;
+    settings = {
+      default_shell = "fish";
     };
   };
 
