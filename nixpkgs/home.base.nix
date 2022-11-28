@@ -77,7 +77,15 @@ in
     enable = true;
     userName = "moba1";
     userEmail = "moba2@protonmail.com";
-    ignores = [ ".DS_Store" ];
+    ignores = [
+      ".DS_Store"
+      ".vscode"
+      "[._]*.s[a-v][a-z]"
+      "[._]*.sw[a-p]"
+      "[._]s[a-rt-v][a-z]"
+      "[._]ss[a-gi-z]"
+      "[._]sw[a-p]"
+    ];
     extraConfig = {
       init.defaultBranch = "main";
       core.pager = "delta";
