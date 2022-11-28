@@ -206,13 +206,19 @@ in
         '';
       };
     };
-    loginShellInit = ''
+    shellInit = ''
       set -l nix_profile ~/.nix-profile/etc/profile.d/nix.fish
       if [ -e "$nix_profile" ]
         source "$nix_profile"
-        set -x NIX_PATH ~/.nix-defexpr/channels
-        exec fish -i
       end
+      if not set -q NIX_PATH
+        set -x NIX_PATH ~/.nix-defexpr/channels
+      end
+
+      set -x GPG_TTY (tty)
+    '';
+    loginShellInit = ''
+        exec fish -i
     '';
     interactiveShellInit = ''
       set fish_color_error red --bold
@@ -224,12 +230,7 @@ in
       set fish_color_search_match --background=magenta
       set fish_color_escape yellow --bold
 
-      set -l custom_script ~/.config/fish/custom.fish
-      [ -e "$custom_script" ]; and source "$custom_script"
-
       type starship > /dev/null 2>&1 && starship init fish | source
-
-      set -x GPG_TTY (tty)
 
       function preexec --on-event fish_preexec
         printf "\e[1mexecute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
