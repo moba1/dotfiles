@@ -85,6 +85,7 @@ in
       "[._]s[a-rt-v][a-z]"
       "[._]ss[a-gi-z]"
       "[._]sw[a-p]"
+      ".idea"
     ];
     extraConfig = {
       init.defaultBranch = "main";
