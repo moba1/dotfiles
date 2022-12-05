@@ -235,6 +235,8 @@ in
       function preexec --on-event fish_preexec
         printf "\e[1mexecute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
       end
+
+      set -x EDITOR vim
     '';
   };
 }
