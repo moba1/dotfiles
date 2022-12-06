@@ -7,5 +7,6 @@
   services.gpg-agent = {
     enable = true;
     pinentryFlavor = "tty";
+    maxCacheTtl = 86400;
   };
 }
