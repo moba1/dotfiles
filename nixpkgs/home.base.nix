@@ -37,7 +37,7 @@ in
     sd
     tokei
     broot
-    httpie
+    xh
     dogdns
     gping
     zip
