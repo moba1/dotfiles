@@ -3,10 +3,16 @@ CURRENT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 .PHONY: all
 all: setup-nix-channel
-	-[ -L ~/.config/home-manager ] && rm -f ~/.config/home-manager
-	-[ -L ~/.config/home-manager ] || rm -rf ~/.config/home-manager
+	-cp ~/.config/home-manager/home.nix /tmp/home.nix
+	-if [ -L ~/.config/home-manager ]; then \
+	    rm -f ~/.config/home-manager; \
+	else \
+	    rm -rf ~/.config/home-manager; \
+	fi
 	env "NIX_PATH=$(NIX_PATH)" nix-shell '<home-manager>' -A install
-	cp ~/.config/home-manager/home.nix /tmp/home.nix
+	-if [ ! -e /tmp/home.nix ]; then \
+	    cp ~/.config/home-manager/home.nix /tmp/home.nix; \
+	fi
 	rm -rf ~/.config/home-manager
 	ln -sf "$(CURRENT_DIR)/nixpkgs" ~/.config/home-manager
 	mv /tmp/home.nix ~/.config/home-manager/
