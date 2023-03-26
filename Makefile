@@ -1,14 +1,23 @@
 NIX_PATH ?= $(HOME)/.nix-defexpr/channels
+CURRENT_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
 .PHONY: all
-all:
-	mkdir -p ~/.config
-	[ -L ~/.config/home-manager ] || rm ~/.config/home-manager/*
-	[ -L ~/.config/home-manager ] || rmdir ~/.config/home-manager
+all: setup-nix-channel
+	-[ -L ~/.config/home-manager ] && rm -f ~/.config/home-manager
+	-[ -L ~/.config/home-manager ] || rm -rf ~/.config/home-manager
+	env "NIX_PATH=$(NIX_PATH)" nix-shell '<home-manager>' -A install
+	cp ~/.config/home-manager/home.nix /tmp/home.nix
+	rm -rf ~/.config/home-manager
+	ln -sf "$(CURRENT_DIR)/nixpkgs" ~/.config/home-manager
+	mv /tmp/home.nix ~/.config/home-manager/
+
+.PHONY: setup-nix-channel
+setup-nix-channel:
 	nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 	nix-channel --update
-	env "NIX_PATH=$(NIX_PATH)" nix-shell '<home-manager>' -A install
+
+
 
 .PHONY: osx
 osx:
