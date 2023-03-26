@@ -9,7 +9,7 @@ all: setup-nix-channel
 	else \
 	    rm -rf ~/.config/home-manager; \
 	fi
-	env "NIX_PATH=$(NIX_PATH)" nix-shell '<home-manager>' -A install
+	env "NIX_PATH=$(NIX_PATH)" nix-shell --run sh '<home-manager>' -A install
 	-if [ ! -e /tmp/home.nix ]; then \
 	    cp ~/.config/home-manager/home.nix /tmp/home.nix; \
 	fi
