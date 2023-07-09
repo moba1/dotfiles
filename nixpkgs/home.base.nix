@@ -39,6 +39,7 @@ in
     zip
     unzip
     bc
+    gh
   ];
 
   programs.bat = {
@@ -89,6 +90,7 @@ in
       gpg.program = "gpg";
       commit.gpgsign = true;
       tag.gpgsign = true;
+      credential."https://github.com".helper = "!gh auth git-credential";
     };
   };
 
