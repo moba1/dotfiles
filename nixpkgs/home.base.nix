@@ -230,7 +230,11 @@ in
       type starship > /dev/null 2>&1 && starship init fish | source
 
       function preexec --on-event fish_preexec
-        printf "\e[1mexecute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
+        printf "\e[1m=== execute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
+      end
+
+      function postexec --on-event fish_postexec
+        printf "\e[1m=== finish time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
       end
 
       set -x EDITOR vim
