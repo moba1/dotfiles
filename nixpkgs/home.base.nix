@@ -30,7 +30,6 @@ in
     lsd
     ripgrep
     procs
-    delta
     sd
     tokei
     broot
@@ -86,13 +85,7 @@ in
     ];
     extraConfig = {
       init.defaultBranch = "main";
-      core.pager = "delta";
-      interactive.diffFilter = "delta --color-only";
       merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-      delta.features = "decorations";
-      delta.line-numbers = "true";
-      delta.side-by-side = "true";
       gpg.program = "gpg";
       commit.gpgsign = true;
       tag.gpgsign = true;
