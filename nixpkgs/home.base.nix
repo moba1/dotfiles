@@ -184,6 +184,8 @@ in
             else
               ls
             end
+          else
+            return 1
           end
         '';
       };
