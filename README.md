@@ -5,19 +5,12 @@
     - [Nixpkgs](https://github.com/NixOS/nixpkgs)
     - [gnu make](https://www.gnu.org/software/make/)
 
-2. write `nixpkgs/home.nix`
-    ```nix
-    { config, pkgs, ... }:
-    {
-      home.username = "<username>";
-      home.homeDirectory = "<home directory path>";
-      imports = [ ./home.base.nix ];
-      # ...
-    }
-    ```
-
-3. run `make`
-4. run `home-manager switch`
+1. run `make`
+1. import base Nix config to `~/.config/home-manager/home.nix`
+   ```nix
+   imports = [ ./home.base.nix ];
+   ```
+1. run `home-manager switch`
 
 ### Linux
 
