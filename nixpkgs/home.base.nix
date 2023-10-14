@@ -86,10 +86,6 @@ in
     ];
     extraConfig = {
       init.defaultBranch = "main";
-      merge.conflictstyle = "diff3";
-      gpg.program = "gpg";
-      commit.gpgsign = true;
-      tag.gpgsign = true;
       credential."https://github.com".helper = "!gh auth git-credential";
     };
   };
