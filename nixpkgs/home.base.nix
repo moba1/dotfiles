@@ -83,6 +83,8 @@ in
       "[._]ss[a-gi-z]"
       "[._]sw[a-p]"
       ".idea"
+      ".devcontainer/"
+      ".devcontainer.json"
     ];
     extraConfig = {
       init.defaultBranch = "main";
