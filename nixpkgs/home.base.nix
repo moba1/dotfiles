@@ -61,8 +61,8 @@ in
     enable = true;
     settings = {
       character = {
-        success_symbol = "[󰈺 ](bold blue)";
-        error_symbol = "[ ](bold red)";
+        success_symbol = "[🐟]()";
+        error_symbol = "[🎣]()";
       };
       package.disabled = true;
       container.disabled = true;
