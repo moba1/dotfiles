@@ -169,7 +169,6 @@ in
   programs.fish = {
     enable = true;
     shellAliases = {
-      diff = "delta";
       ls = "lsd";
       cat = "bat";
     };
