@@ -9,7 +9,7 @@ all: setup-nix-channel
 	else \
 	    rm -rf ~/.config/home-manager; \
 	fi
-	env "NIX_PATH=$(NIX_PATH)" nix-shell --run sh '<home-manager>' -A install
+	nix-shell --run sh '<home-manager>' -A install
 	-if [ ! -e /tmp/home.nix ]; then \
 	    cp ~/.config/home-manager/home.nix /tmp/home.nix; \
 	fi
@@ -19,7 +19,6 @@ all: setup-nix-channel
 
 .PHONY: setup-nix-channel
 setup-nix-channel:
-	nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 	nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 	nix-channel --update
 
