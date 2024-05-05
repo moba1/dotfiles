@@ -1,2 +1,4 @@
 result
-/nixpkgs/home.nix
+/nixpkgs/*
+!/nixpkgs/home.base.nix
+
