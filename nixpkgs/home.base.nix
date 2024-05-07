@@ -18,14 +18,6 @@ in
   home.packages = with pkgs; [
     fd
     lsd
-    ripgrep
-    procs
-    sd
-    tokei
-    broot
-    xh
-    dogdns
-    gping
     zip
     unzip
     bc
