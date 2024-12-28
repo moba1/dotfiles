@@ -60,4 +60,6 @@ cmp.setup.cmdline(':', {
   matching = { disallow_symbol_nonprefix_matching = false }
 })
 
+-- UI configuration
 vim.cmd[[colorscheme nord]]
+require'lualine'.setup()

@@ -33,6 +33,8 @@
       cmp-nvim-lsp
       vim-vsnip
       nord-vim
+      lualine-nvim
+      nvim-web-devicons
     ];
   };
 }
