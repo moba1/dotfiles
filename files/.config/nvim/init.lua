@@ -90,7 +90,7 @@ end
 -- filer configuration
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
 
--- aerial configuration
+-- code configuration
 require("aerial").setup({
   on_attach = function(bufnr)
     vim.keymap.set("n", "{", "<cmd>AerialPrev<CR>", { buffer = bufnr })
@@ -98,3 +98,5 @@ require("aerial").setup({
   end,
 })
 vim.keymap.set("n", "<leader>a", "<cmd>AerialToggle!<CR>")
+require'Comment'.setup()
+

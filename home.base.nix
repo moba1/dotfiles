@@ -41,6 +41,7 @@
       aerial-nvim
       indent-blankline-nvim
       nvim-hlslens
+      comment-nvim
     ];
   };
 
