@@ -39,6 +39,7 @@
       nui-nvim
       neo-tree-nvim
       aerial-nvim
+      indent-blankline-nvim
     ];
   };
 

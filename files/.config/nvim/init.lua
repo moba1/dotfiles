@@ -67,6 +67,7 @@ vim.opt.list = true
 vim.opt.listchars = { tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%' }
 vim.opt.whichwrap = 'h,l,<,>,[,],~'
 vim.opt.showmatch = true
+require'ibl'.setup()
 
 -- clipboard configuration
 vim.opt.clipboard:append({ "unnamedplus" })
