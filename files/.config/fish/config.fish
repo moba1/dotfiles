@@ -1,3 +1,5 @@
+fish_add_path ~/.local/bin
+
 type starship > /dev/null 2>&1 && starship init fish | source
 
 if status --is-interactive
