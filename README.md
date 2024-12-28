@@ -12,41 +12,6 @@
    ```
 1. run `home-manager switch`
 
-### Linux
-
-If you use Linux, you must import `home.linux.nix` in `nixpkgs/home.nix`
-
-```nix
-# ...
-imports = [ ./home.base.nix ./home.linux.nix ];
-# ...
-```
-
-### macOS
-
-If you use macOS, you must run following commands further:
-
-```bash
-make osx
-```
-
-you must add following configurations to `~/.nixpkgs/darwin-configuration.nix`:
-
-```nix
-{ config, pkgs, ... }:
-
-{
-  environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
-
-  services.nix-daemon.enable = true;
-
-  # valid `<login shell name>` value: fish, bash, zsh
-  programs.<login shell name>.enable = true;
-
-  system.stateVersion = 4;
-}
-```
-
 ### WSL
 install [win32yank](https://github.com/equalsraf/win32yank) where the PATH passed
 
