@@ -38,6 +38,7 @@
       plenary-nvim
       nui-nvim
       neo-tree-nvim
+      aerial-nvim
     ];
   };
 }
