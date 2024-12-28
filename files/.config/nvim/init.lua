@@ -66,6 +66,7 @@ require'lualine'.setup()
 vim.opt.list = true
 vim.opt.listchars = { tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%' }
 vim.opt.whichwrap = 'h,l,<,>,[,],~'
+vim.opt.showmatch = true
 
 -- filer configuration
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
