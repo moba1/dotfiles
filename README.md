@@ -47,6 +47,9 @@ you must add following configurations to `~/.nixpkgs/darwin-configuration.nix`:
 }
 ```
 
+### WSL
+install [win32yank](https://github.com/equalsraf/win32yank) where the PATH passed
+
 ## License
 
 <p xmlns:dct="http://purl.org/dc/terms/" xmlns:vcard="http://www.w3.org/2001/vcard-rdf/3.0#">
