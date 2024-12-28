@@ -59,3 +59,5 @@ cmp.setup.cmdline(':', {
   }),
   matching = { disallow_symbol_nonprefix_matching = false }
 })
+
+vim.cmd[[colorscheme nord]]

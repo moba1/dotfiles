@@ -47,6 +47,7 @@ in
       nvim-cmp
       cmp-nvim-lsp
       vim-vsnip
+      nord-vim
     ];
   };
 
