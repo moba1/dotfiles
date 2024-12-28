@@ -65,6 +65,7 @@ vim.cmd[[colorscheme nord]]
 require'lualine'.setup()
 vim.opt.list = true
 vim.opt.listchars = { tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%' }
+vim.opt.whichwrap = 'h,l,<,>,[,],~'
 
 -- filer configuration
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
