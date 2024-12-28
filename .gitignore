@@ -1,4 +1,2 @@
 result
-/nixpkgs/*
-!/nixpkgs/home.base.nix
 

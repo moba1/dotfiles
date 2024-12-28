@@ -22,56 +22,32 @@ in
     unzip
     bc
     gh
+    bat
+    zellij
+    starship
+    fish
+    lua-language-server
   ];
 
-  programs.bat = {
-    enable = true;
-    config = {
-      paging = "never";
-      theme = "Nord";
-    };
+  home.file = {
+    ".config/nvim/init.lua".source    = files/.config/nvim/init.lua;
+    ".config/bat/config".source       = files/.config/bat/config;
+    ".config/starship.toml".source    = files/.config/starship.toml;
+    ".config/git/ignore".source       = files/.config/git/ignore;
+    ".config/git/config".source       = files/.config/git/config;
+    ".config/fish/config.fish".source = files/.config/fish/config.fish;
+    ".config/fish/functions/fish_greeting.fish".source = files/.config/fish/functions/fish_greeting.fish;
   };
 
-  programs.zellij = {
+  programs.neovim = {
     enable = true;
-    settings = {
-      default_shell = "fish";
-    };
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      character = {
-        success_symbol = "[🐟]()";
-        error_symbol = "[🎣]()";
-      };
-      package.disabled = true;
-      container.disabled = true;
-      directory.truncation_symbol = "…/";
-    };
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "moba1";
-    userEmail = "moba2@protonmail.com";
-    ignores = [
-      ".DS_Store"
-      ".vscode"
-      "[._]*.s[a-v][a-z]"
-      "[._]*.sw[a-p]"
-      "[._]s[a-rt-v][a-z]"
-      "[._]ss[a-gi-z]"
-      "[._]sw[a-p]"
-      ".idea"
-      ".devcontainer/"
-      ".devcontainer.json"
+    defaultEditor = true;
+    plugins = with pkgs.vimPlugins; [
+      nvim-lspconfig
+      nvim-cmp
+      cmp-nvim-lsp
+      vim-vsnip
     ];
-    extraConfig = {
-      init.defaultBranch = "main";
-      credential."https://github.com".helper = "!gh auth git-credential";
-    };
   };
 
   programs.vim = {
@@ -125,11 +101,11 @@ in
           if executable('xsel')
             return 'xsel -bi'
           elif executable('xclip')
-            return 'xclip'
-          endif
-        endif
-        throw 'clipboard program not found'
-      endfunction
+            return 'xclip'=
+          endif           =
+        endif             =
+        throw 'clipboard p=rogram not found'
+      endfunction         =
       augroup Clipboard
         autocmd!
         autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip_command(), @0) | endif
@@ -145,75 +121,6 @@ in
 
       " rainbow
       let g:rainbow_actve = 1
-    '';
-  };
-
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      ls = "lsd";
-      cat = "bat";
-    };
-    functions = {
-      cd = {
-        body = ''
-          if builtin cd $argv
-            if type lsd > /dev/null 2>&1
-              lsd
-            else
-              ls
-            end
-          else
-            return 1
-          end
-        '';
-      };
-      fish_greeting = {
-        body = ''
-          echo "        /\\"
-          echo "      _/./"
-          echo "   ,-'    `-:.,-'/"
-          echo "  > O )<)    _  ("
-          echo "   `-._  _.:' `-.\\"
-          echo "       `` \\;"
-        '';
-      };
-    };
-    shellInit = ''
-      set -l nix_profile ~/.nix-profile/etc/profile.d/nix.fish
-      if [ -e "$nix_profile" ]
-        source "$nix_profile"
-      end
-      if not set -q NIX_PATH
-        set -x NIX_PATH ~/.nix-defexpr/channels
-      end
-
-      set -x GPG_TTY (tty)
-    '';
-    loginShellInit = ''
-        exec fish -i
-    '';
-    interactiveShellInit = ''
-      set fish_color_error red --bold
-      set fish_color_param white
-      set fish_color_command cyan --bold
-      set fish_color_autosuggestion green
-      set fish_color_operator bryellow --bold
-      set fish_color_comment green --bold
-      set fish_color_search_match --background=magenta
-      set fish_color_escape yellow --bold
-
-      type starship > /dev/null 2>&1 && starship init fish | source
-
-      function preexec --on-event fish_preexec
-        printf "\e[1m=== execute time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
-      end
-
-      function postexec --on-event fish_postexec
-        printf "\e[1m=== finish time: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
-      end
-
-      set -x EDITOR vim
     '';
   };
 }
