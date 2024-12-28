@@ -69,7 +69,7 @@ vim.opt.whichwrap = 'h,l,<,>,[,],~'
 vim.opt.showmatch = true
 
 -- clipboard configuration
-vim.opt.clipboard:append({ unnamedplus = true })
+vim.opt.clipboard:append({ "unnamedplus" })
 
 -- filer configuration
 vim.keymap.set('n', '<C-n>', ':Neotree filesystem reveal left<CR>')
