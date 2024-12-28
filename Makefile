@@ -7,8 +7,8 @@ all: setup-dotfiles setup-nix-channel
 .PHONY: setup-dotfiles
 setup-dotfiles:
 	mkdir -p ~/.config/home-manager
-	ln -sf $(CURRENT_DIR)/nixpkgs/home.base.nix ~/.config/home-manager/home.base.nix
-	ln -sf $(CURRENT_DIR)/nixpkgs/files ~/.config/home-manager
+	ln -sf $(CURRENT_DIR)/home.base.nix ~/.config/home-manager/home.base.nix
+	ln -sf $(CURRENT_DIR)/files ~/.config/home-manager
 
 .PHONY: setup-nix-channel
 setup-nix-channel:
