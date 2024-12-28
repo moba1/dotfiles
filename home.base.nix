@@ -35,6 +35,9 @@
       nord-vim
       lualine-nvim
       nvim-web-devicons
+      plenary-nvim
+      nui-nvim
+      neo-tree-nvim
     ];
   };
 }
