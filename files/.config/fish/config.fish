@@ -16,7 +16,6 @@ end
 function preexec --on-event fish_preexec
   printf "\e[1m=== command begin: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
 end
-
 function postexec --on-event fish_postexec
   printf "\e[1m=== command end: \e[4;33m%s\e[0m\n" (date '+%F (%a) %T')
 end

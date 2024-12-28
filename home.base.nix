@@ -41,4 +41,8 @@
       aerial-nvim
     ];
   };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 }
