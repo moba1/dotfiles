@@ -39,6 +39,9 @@ require'lspconfig'.nixd.setup {
 require'lspconfig'.rust_analyzer.setup {
   capabilities = capabilities
 }
+require'lspconfig'.pyright.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
