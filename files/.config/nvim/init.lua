@@ -27,6 +27,9 @@ require'lspconfig'.dockerls.setup {
 require'lspconfig'.fish_lsp.setup {
   capabilities = capabilities
 }
+require'lspconfig'.bashls.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
