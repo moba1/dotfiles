@@ -36,7 +36,7 @@ require'lspconfig'.gopls.setup {
 require'lspconfig'.nixd.setup {
   capabilities = capabilities
 }
-require'lspconfig'.rls.setup {
+require'lspconfig'.rust_analyzer.setup {
   capabilities = capabilities
 }
 
