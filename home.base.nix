@@ -13,6 +13,7 @@
     fish
     lua-language-server
     dockerfile-language-server-nodejs
+    fish-lsp
   ];
 
   home.file = {
