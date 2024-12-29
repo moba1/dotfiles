@@ -72,7 +72,7 @@ require'hlslens'.setup()
 
 -- clipboard configuration
 vim.opt.clipboard:append({ "unnamedplus" })
-if vim.fn.has("wsl") then
+if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
