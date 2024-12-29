@@ -42,6 +42,9 @@ require'lspconfig'.rust_analyzer.setup {
 require'lspconfig'.pyright.setup {
   capabilities = capabilities
 }
+require'lspconfig'.terraformls.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
