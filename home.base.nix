@@ -15,6 +15,7 @@
     dockerfile-language-server-nodejs
     fish-lsp
     bash-language-server
+    nixd
   ];
 
   home.file = {

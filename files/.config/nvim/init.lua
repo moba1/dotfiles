@@ -33,6 +33,9 @@ require'lspconfig'.bashls.setup {
 require'lspconfig'.gopls.setup {
   capabilities = capabilities
 }
+require'lspconfig'.nixd.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
