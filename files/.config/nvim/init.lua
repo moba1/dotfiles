@@ -36,6 +36,9 @@ require'lspconfig'.gopls.setup {
 require'lspconfig'.nixd.setup {
   capabilities = capabilities
 }
+require'lspconfig'.rls.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
