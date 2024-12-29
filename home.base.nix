@@ -12,6 +12,7 @@
     starship
     fish
     lua-language-server
+    dockerfile-language-server-nodejs
   ];
 
   home.file = {

@@ -21,6 +21,9 @@ require'lspconfig'.lua_ls.setup {
 require'lspconfig'.ts_ls.setup {
   capabilities = capabilities
 }
+require'lspconfig'.dockerls.setup {
+  capabilities = capabilities
+}
 
 -- autocompletion configuration
 local cmp = require'cmp'
