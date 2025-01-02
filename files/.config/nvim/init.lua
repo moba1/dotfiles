@@ -1,6 +1,6 @@
 -- LSP configuration
 vim.keymap.set('n', '<M-h>', '<cmd>:lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', '<M-f>', '<cmd>:lua vim.lsp.buf.formatting()<CR>')
+vim.keymap.set('n', '<M-f>', '<cmd>:lua vim.lsp.buf.format()<CR>')
 vim.keymap.set('n', '<M-r>', '<cmd>:lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', '<M-S-d>', '<cmd>:lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', '<M-d>', '<cmd>:lua vim.lsp.buf.declaration()<CR>')
