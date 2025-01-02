@@ -19,11 +19,12 @@
   ];
 
   home.file = {
-    ".config/nvim/init.lua".source    = files/.config/nvim/init.lua;
-    ".config/bat/config".source       = files/.config/bat/config;
-    ".config/starship.toml".source    = files/.config/starship.toml;
-    ".config/git/ignore".source       = files/.config/git/ignore;
-    ".config/git/config".source       = files/.config/git/config;
+    ".config/nvim/init.lua".source     = files/.config/nvim/init.lua;
+    ".config/bat/config".source        = files/.config/bat/config;
+    ".config/starship.toml".source     = files/.config/starship.toml;
+    ".config/git/ignore".source        = files/.config/git/ignore;
+    ".config/git/config".source        = files/.config/git/config;
+    ".config/zellij/config.kdl".source = files/.config/zellij/config.kdl;
     ".config/fish/config.fish".source = files/.config/fish/config.fish;
     ".config/fish/functions/fish_greeting.fish".source = files/.config/fish/functions/fish_greeting.fish;
   };
