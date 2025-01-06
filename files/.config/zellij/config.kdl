@@ -23,13 +23,17 @@ keybinds {
     bind "Alt Shift Down " { MoveFocusOrTab "Down" ; }
     bind "Alt Shift f    " { ToggleFloatingPanes   ; }
     bind "Alt Shift n    " { NewPane               ; }
-    bind "Alt {          " { PreviousSwapLayout    ; }
-    bind "Alt }          " { NextSwapLayout        ; }
-    unbind "Alt h"
-    unbind "Alt j"
-    unbind "Alt k"
-    unbind "Alt l"
-    unbind "Alt f"
-    unbind "Alt n"
+    bind "Alt       {    " { PreviousSwapLayout    ; }
+    bind "Alt       }    " { NextSwapLayout        ; }
+    unbind "Alt  h"
+    unbind "Alt  j"
+    unbind "Alt  k"
+    unbind "Alt  l"
+    unbind "Alt  f"
+    unbind "Alt  n"
+  }
+  shared_except "resize" {
+    bind "Alt Shift t" { SwitchToMode "Resize"; }
+    unbind "Ctrl n"
   }
 }
