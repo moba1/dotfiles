@@ -23,3 +23,5 @@ end
 if [ -f ~/.config/fish/env-spec.fish ]
   source ~/.config/fish/env-spec.fish
 end
+
+alias nix-fish='nix-shell --run fish'
