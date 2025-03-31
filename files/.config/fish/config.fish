@@ -25,3 +25,4 @@ if [ -f ~/.config/fish/env-spec.fish ]
 end
 
 alias nix-fish='nix-shell --run fish'
+alias cat='bat'
