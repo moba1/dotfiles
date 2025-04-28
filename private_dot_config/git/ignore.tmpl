@@ -1,0 +1,16 @@
+# OS specific files
+.DS_Store
+
+# Editor
+.vscode
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+{{ if eq (index . "work") "true" }}}
+.idea
+.devcontainer/
+.devcontainer.json
+{{ end }}
+
