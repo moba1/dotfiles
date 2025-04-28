@@ -1,0 +1,10 @@
+[init]
+  defaultBranch = main
+[credential "https://github.com"]
+  helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+  helper = !/usr/bin/gh auth git-credential
+
+[user]
+  name = {{ .git.default_name }}
+  email = {{ .git.default_email }}
