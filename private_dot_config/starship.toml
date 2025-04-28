@@ -1,0 +1,12 @@
+[character]
+error_symbol = "[🎣]()"
+success_symbol = "[🐟]()"
+
+[container]
+disabled = true
+
+[directory]
+truncation_symbol = "…/"
+
+[package]
+disabled = true
