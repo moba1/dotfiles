@@ -2,11 +2,13 @@
 error_symbol = "[🎣]()"
 success_symbol = "[🐟]()"
 
-[container]
-disabled = true
-
 [directory]
 truncation_symbol = "…/"
 
+{{ if eq (index . "work") "true" }}}
 [package]
 disabled = true
+
+[container]
+disabled = true
+{{ end }}
