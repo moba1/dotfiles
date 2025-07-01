@@ -6,5 +6,5 @@
   helper = !/usr/bin/gh auth git-credential
 
 [user]
-  name = {{ .git.default_name }}
-  email = {{ .git.default_email }}
+  name = moba1
+  email = moba2@protonmail.com

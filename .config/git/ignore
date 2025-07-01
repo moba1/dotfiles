@@ -8,9 +8,5 @@
 [._]s[a-rt-v][a-z]
 [._]ss[a-gi-z]
 [._]sw[a-p]
-{{ if eq (index . "work") "true" }}}
-.idea
-.devcontainer/
-.devcontainer.json
-{{ end }}
+
 
