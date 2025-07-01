@@ -5,6 +5,5 @@
 [credential "https://gist.github.com"]
   helper = !gh auth git-credential
 
-[user]
-  name = moba1
-  email = moba2@protonmail.com
+[include]
+  path = ~/.config/git/user
