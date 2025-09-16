@@ -1,6 +1,12 @@
 -- plugin setup
 require('config.lazy')
 
+-- load local config
+local config_file = vim.fn.stdpath("config") .. "/local.lua"
+if vim.fn.filereadable(config_file) == 1 then
+  dofile(config_file)
+end
+
 -- UI configuration
 vim.opt.list = true
 vim.opt.listchars = { tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%' }
