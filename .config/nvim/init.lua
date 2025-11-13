@@ -1,5 +1,5 @@
 -- plugin setup
-require('config.lazy')
+require("config.lazy")
 
 -- load local config
 local config_file = vim.fn.stdpath("config") .. "/local.lua"
@@ -9,9 +9,23 @@ end
 
 -- UI configuration
 vim.opt.list = true
-vim.opt.listchars = { tab='»-', trail='-', eol='↲', extends='»', precedes='«', nbsp='%' }
-vim.opt.whichwrap = 'h,l,<,>,[,],~'
+vim.opt.listchars = { tab = "»-", trail = "-", eol = "↲", extends = "»", precedes = "«", nbsp = "%" }
+vim.opt.whichwrap = "h,l,<,>,[,],~"
 vim.opt.showmatch = true
+
+-- git configuration
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  callback = function()
+    vim.opt_local.textwidth = 0
+  end,
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "gitcommit",
+    callback = function()
+      vim.opt_local.textwidth = 0
+    end,
+  }),
+})
 
 -- clipboard configuration
 vim.opt.clipboard:append({ "unnamedplus" })
@@ -20,11 +34,11 @@ if vim.fn.has("wsl") == 1 then
     name = "win32yank-wsl",
     copy = {
       ["+"] = "win32yank.exe -i --crlf",
-      ["*"] = "win32yank.exe -i --crlf"
+      ["*"] = "win32yank.exe -i --crlf",
     },
     paste = {
       ["+"] = "win32yank.exe -o --crlf",
-      ["*"] = "win32yank.exe -o --crlf"
+      ["*"] = "win32yank.exe -o --crlf",
     },
     cache_enable = 0,
   }
