@@ -18,13 +18,9 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
   callback = function()
     vim.opt_local.textwidth = 0
+    -- 自動整形を無効化
+    vim.opt_local.formatoptions:remove({ "t", "c" })
   end,
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "gitcommit",
-    callback = function()
-      vim.opt_local.textwidth = 0
-    end,
-  }),
 })
 
 -- clipboard configuration
