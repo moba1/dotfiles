@@ -15,3 +15,11 @@
 devbox.json
 devbox.lock
 
+
+**/.claude/settings.local.json
+.kiro/
+
+.claude/worktrees/
+
+# Claude の作業用 TODO（コミット対象外）
+CLAUDE-TODO.md
