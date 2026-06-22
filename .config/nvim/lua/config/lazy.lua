@@ -31,10 +31,11 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
+  -- 自動更新は無効化する。更新はまとまった単位で手動 `:Lazy update` を実行し、
+  -- 動作確認のうえ lazy-lock.json をコミットすることで「勝手に壊れない」状態を保つ。
   checker = {
-    enabled = true, -- check for plugin updates periodically
-    notify = false, -- notify on update
-  }, -- automatically check for plugin updates
+    enabled = false,
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins
