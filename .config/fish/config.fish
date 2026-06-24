@@ -28,9 +28,5 @@ if type -f -p nvim >/dev/null
     set -x EDITOR nvim
 end
 
-if type -f -p mise >/dev/null
-    eval (mise activate fish)
-end
-
 alias nix-fish='nix-shell --run fish'
 alias cat='bat'
